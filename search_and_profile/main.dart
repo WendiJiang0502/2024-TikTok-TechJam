@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'search_page.dart'; // Import the search page
+import 'profile_page.dart'; // Import the profile page
 
 void main() {
   runApp(MyApp());
@@ -35,6 +36,17 @@ class MainPage extends StatelessWidget {
             },
           ),
         ],
+      ),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => ProfilePage()),
+            );
+          },
+          child: Text('Profile'),
+        ),
       ),
     );
   }
