@@ -36,13 +36,24 @@ class ProfilePage extends StatelessWidget {
               backgroundImage: NetworkImage('https://www.example.com/profile_image.jpg'), // Replace with actual image URL
             ),
             SizedBox(height: 8),
-            Text(
-              'Username',
-              style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  '@userhandle',
+                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                ),
+                SizedBox(width: 4),
+                Icon(
+                  Icons.verified,
+                  color: Colors.blue,
+                  size: 22,
+                ),
+              ],
             ),
             SizedBox(height: 4),
             Text(
-              '@userhandle',
+              'Individual artist',
               style: TextStyle(color: Colors.grey),
             ),
             SizedBox(height: 16),
@@ -88,22 +99,6 @@ class ProfilePage extends StatelessWidget {
                   ],
                 ),
               ],
-            ),
-            SizedBox(height: 16),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: ElevatedButton(
-                onPressed: () {
-                  // Handle follow button action
-                },
-                child: Text('Follow'),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.red,
-                  foregroundColor: Colors.white,
-                  padding: EdgeInsets.symmetric(vertical: 12, horizontal: 24),
-                  textStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                ),
-              ),
             ),
             SizedBox(height: 16),
             Divider(),
