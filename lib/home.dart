@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:temp_flutter/widgets/customAddIcon.dart';
+import 'package:temp_flutter/constants.dart';
+import 'package:temp_flutter/profile_page.dart';
+import 'package:temp_flutter/add_screen.dart';
 
 
 class Home extends StatefulWidget {
@@ -14,8 +17,7 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
+    return Scaffold(
         bottomNavigationBar: BottomNavigationBar(
           onTap: (index){
             setState(() {
@@ -26,6 +28,7 @@ class _HomeState extends State<Home> {
           backgroundColor: Colors.black,
           selectedItemColor: const Color.fromARGB(255, 225, 123, 243),
           unselectedItemColor: Colors.white,
+          currentIndex: pageIndex,
           items: const [
             BottomNavigationBarItem(
               icon: Icon(Icons.home, size:30),
@@ -41,7 +44,7 @@ class _HomeState extends State<Home> {
             ),
           ],
         ),
-      ),
-    );
+        body: pages[pageIndex],
+      );
   }
 }
