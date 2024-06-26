@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'search_page.dart'; // Import the search page
 import 'profile_page.dart'; // Import the profile page
+import 'home.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MainPage(),
+      home: const Home(),
     );
   }
 }
