@@ -8,7 +8,7 @@ class SearchPage extends StatefulWidget {
 class _SearchPageState extends State<SearchPage> {
   TextEditingController searchController = TextEditingController();
   List<String> songNames = ["Song 1", "Song 2", "Song 3", "Song 4"];
-  List<String> musicGenres = ["Pop", "Rock", "Jazz", "Hip Hop", "Classical", "Country", "Electronic", "Reggae"];
+  List<String> musicGenres = ["Pop", "Rock", "Jazz", "Hip Hop", "Classical", "Country", "Electronic", "Relaxing"];
 
   @override
   Widget build(BuildContext context) {
