@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:temp_flutter/widgets/customAddIcon.dart';
 import 'package:temp_flutter/constants.dart';
-import 'package:temp_flutter/profile_page.dart';
-import 'package:temp_flutter/add_screen.dart';
+// import 'package:temp_flutter/profile_page.dart';
+// import 'package:temp_flutter/add_screen.dart';
 
 
 class Home extends StatefulWidget {

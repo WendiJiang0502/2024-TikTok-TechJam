@@ -1,0 +1,11 @@
+{
+    "Grit and Grace":{
+        "Genre" : "Country",
+        "Creator": "Alexander Whitman",
+        "Independent Musicians": true,
+        "Views": 200,
+        "Comments": 50,
+        "path": "assets/songs/Grit_and_Grace.mp3",
+        "album cover": "assets/covers/Grit_and_Grace.png"
+    }
+}
