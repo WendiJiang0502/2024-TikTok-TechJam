@@ -19,6 +19,9 @@ Rock
 Chasing Shadows - 
 https://suno.com/song/e0aa1054-633c-485e-92a1-b4a57e3863b4
 
+Broken Mirrors - 
+https://suno.com/song/3ffe204b-1886-451a-b18a-df9baea7c657
+
 
 Hip Hop
 
@@ -52,3 +55,19 @@ https://suno.com/song/9d0d329f-44ff-4ccb-88e5-293a402d4aea
 
 Underneath the Old Oak Tree -
 https://suno.com/song/4fe23bf3-2028-44d5-98b8-a2eac8ba0fc3 
+
+Electric
+
+Electric Love - 
+https://suno.com/song/04852528-04dd-4eb0-a9a0-171a870d458c
+
+Neon Lights - 
+https://suno.com/song/13e48012-7a78-47e0-a757-e49936edf44e
+
+Relaxing
+
+Sunset Dreams - 
+https://suno.com/song/b2d4bbb3-1406-4316-9c3e-17fc7499f6e2
+
+Lullaby of Dreams - 
+https://suno.com/song/27c015ba-47f6-4f0f-8d3e-112190c5612e
