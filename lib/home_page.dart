@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:temp_flutter/search_page.dart';
+import 'package:temp_flutter/objects/video.dart';
+import 'package:video_player/video_player.dart';
+import 'package:temp_flutter/widgets/video_display.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -9,7 +12,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-    bool _isMusicSelected = true;
+  bool _isMusicSelected = true;
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +60,19 @@ class _HomePageState extends State<HomePage> {
               },
             ),
             ],
-          )),
+          )
+        ),
+      body: PageView.builder(
+        itemCount: 1,
+        controller: PageController(initialPage: 0, viewportFraction: 1),
+        scrollDirection: Axis.vertical,
+        itemBuilder: (context, index){
+          return Stack(
+            children: [
+              VideoDisplay(),
+            ],
+          );
+      }),
     );
   }
 }
