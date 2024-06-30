@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'dart:convert';
+import 'dart:convert'; // Import JSON handling
 import 'package:flutter/services.dart' show rootBundle;
 
 class SearchPage extends StatefulWidget {
@@ -14,6 +14,7 @@ class _SearchPageState extends State<SearchPage> {
   List<Map<String, String>> latestMusic = [];
 
   bool showGridView = true;
+  bool isLoading = false;
 
   @override
   void initState() {
@@ -22,6 +23,10 @@ class _SearchPageState extends State<SearchPage> {
   }
 
   Future<void> loadSongs() async {
+    setState(() {
+      isLoading = true;
+    });
+
     try {
       final String response = await rootBundle.loadString('lib/assets/songs.json');
       final Map<String, dynamic> data = json.decode(response);
@@ -32,9 +37,6 @@ class _SearchPageState extends State<SearchPage> {
           "title": key,
           "public_time": value["public_time"],
           "Creator": value["Creator"],
-          "Genre": value["Genre"],
-          "path": value["path"],
-          "album_cover": value["album cover"]
         };
         songs.add(song);
       });
@@ -42,6 +44,7 @@ class _SearchPageState extends State<SearchPage> {
       songs.sort((a, b) => b["public_time"]!.compareTo(a["public_time"]!));
       setState(() {
         latestMusic = songs.take(10).toList();
+        isLoading = false;
       });
 
       // Debugging: Print loaded songs
@@ -51,6 +54,9 @@ class _SearchPageState extends State<SearchPage> {
       });
     } catch (error) {
       print("Error loading songs: $error");
+      setState(() {
+        isLoading = false;
+      });
     }
   }
 
@@ -196,24 +202,21 @@ class _SearchPageState extends State<SearchPage> {
                   );
                 },
               )
-            else
-              latestMusic.isEmpty
-                  ? Center(child: CircularProgressIndicator())
-                  : ListView.builder(
-                physics: NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
-                itemCount: latestMusic.length,
-                itemBuilder: (context, index) {
-                  return ListTile(
-                    leading: Image.asset(latestMusic[index]['album_cover']!),
-                    title: Text(latestMusic[index]['title']!),
-                    subtitle: Text('Published on: ${latestMusic[index]['public_time']}'),
-                    onTap: () {
-                      // Handle latest music item tap
-                    },
-                  );
-                },
-              ),
+              else
+                ListView.builder(
+                  physics: NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  itemCount: latestMusic.length,
+                  itemBuilder: (context, index) {
+                    return ListTile(
+                      title: Text(latestMusic[index]['title']!),
+                      subtitle: Text('${latestMusic[index]['Creator']!}'),
+                      onTap: () {
+                        // Handle latest music item tap
+                      },
+                    );
+                  },
+                ),
           ],
         ),
       ),
