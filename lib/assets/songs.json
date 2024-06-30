@@ -4,179 +4,179 @@
         "Creator": "Liam Bennett",
         "Independent Musicians": true,
         "Views": 543,
-        "Likes": 259,
         "Comments": 123,
         "path": "assets/songs/Unveiled_Serenade.mp3",
-        "album cover": "assets/covers/Unveiled_Serenade.png"
+        "album cover": "assets/covers/Unveiled_Serenade.png",
+        "public_time": "2024-06-15"
     },
     "Moonlit Serenade": {
         "Genre": "Jazz",
         "Creator": "Sophia Carter",
         "Independent Musicians": true,
         "Views": 789,
-        "Likes": 546,
         "Comments": 89,
         "path": "assets/songs/Moonlit_Serenade.mp3",
-        "album cover": "assets/covers/Moonlit_Serenade.png"
+        "album cover": "assets/covers/Moonlit_Serenade.png",
+        "public_time": "2024-06-20"
     },
     "Love in the Air": {
         "Genre": "Pop",
         "Creator": "Emma Williams",
         "Independent Musicians": true,
         "Views": 652,
-        "Likes": 473,
         "Comments": 150,
         "path": "assets/songs/Love_in_the_Air.mp3",
-        "album cover": "assets/covers/Love_in_the_Air.png"
+        "album cover": "assets/covers/Love_in_the_Air.png",
+        "public_time": "2024-05-25"
     },
     "Dancing in the Moonlight": {
         "Genre": "Pop",
         "Creator": "James Anderson",
         "Independent Musicians": true,
         "Views": 478,
-        "Likes": 300,
         "Comments": 67,
         "path": "assets/songs/Dancing_in_the_Moonlight.mp3",
-        "album cover": "assets/covers/Dancing_in_the_Moonlight.png"
+        "album cover": "assets/covers/Dancing_in_the_Moonlight.png",
+        "public_time": "2024-06-05"
     },
     "Chasing Shadows": {
         "Genre": "Rock",
         "Creator": "Olivia Smith",
         "Independent Musicians": true,
         "Views": 812,
-        "Likes": 721,
         "Comments": 143,
         "path": "assets/songs/Chasing_Shadows.mp3",
-        "album cover": "assets/covers/Chasing_Shadows.png"
+        "album cover": "assets/covers/Chasing_Shadows.png",
+        "public_time": "2024-06-10"
     },
     "Broken Mirrors": {
         "Genre": "Rock",
         "Creator": "William Johnson",
         "Independent Musicians": true,
         "Views": 590,
-        "Likes": 489,
         "Comments": 120,
         "path": "assets/songs/Broken_Mirrors.mp3",
-        "album cover": "assets/covers/Broken_Mirrors.png"
+        "album cover": "assets/covers/Broken_Mirrors.png",
+        "public_time": "2024-05-20"
     },
     "City Lights": {
         "Genre": "Hip Hop",
         "Creator": "Benjamin Martinez",
         "Independent Musicians": true,
         "Views": 710,
-        "Likes": 401,
         "Comments": 98,
         "path": "assets/songs/City_Lights.mp3",
-        "album cover": "assets/covers/City_Lights.png"
+        "album cover": "assets/covers/City_Lights.png",
+        "public_time": "2024-06-18"
     },
     "Walkin' These Streets": {
         "Genre": "Hip Hop",
         "Creator": "Amelia Davis",
         "Independent Musicians": true,
         "Views": 930,
-        "Likes": 721,
         "Comments": 187,
         "path": "assets/songs/Walkin_These_Streets.mp3",
-        "album cover": "assets/covers/Walkin_These_Streets.png"
+        "album cover": "assets/covers/Walkin_These_Streets.png",
+        "public_time": "2024-06-22"
     },
     "Forever in Time": {
         "Genre": "Classical",
         "Creator": "Lucas Brown",
         "Independent Musicians": true,
         "Views": 812,
-        "Likes": 612,
         "Comments": 145,
         "path": "assets/songs/Forever_in_Time.mp3",
-        "album cover": "assets/covers/Forever_in_Time.png"
+        "album cover": "assets/covers/Forever_in_Time.png",
+        "public_time": "2024-06-08"
     },
     "Peaceful Journey": {
         "Genre": "Classical",
         "Creator": "Mia Wilson",
         "Independent Musicians": true,
         "Views": 721,
-        "Likes": 540,
         "Comments": 132,
         "path": "assets/songs/Peaceful_Journey.mp3",
-        "album cover": "assets/covers/Peaceful_Journey.png"
+        "album cover": "assets/covers/Peaceful_Journey.png",
+        "public_time": "2024-06-14"
     },
     "Timeless Moments": {
         "Genre": "Classical",
         "Creator": "Ethan Moore",
         "Independent Musicians": true,
         "Views": 941,
-        "Likes": 823,
         "Comments": 176,
         "path": "assets/songs/Timeless_Moments.mp3",
-        "album cover": "assets/covers/Timeless_Moments.png"
+        "album cover": "assets/covers/Timeless_Moments.png",
+        "public_time": "2024-05-30"
     },
     "Dreamscape": {
         "Genre": "Classical",
         "Creator": "Harper Taylor",
         "Independent Musicians": true,
         "Views": 614,
-        "Likes": 512,
         "Comments": 89,
         "path": "assets/songs/Dreamscape.mp3",
-        "album cover": "assets/covers/Dreamscape.png"
+        "album cover": "assets/covers/Dreamscape.png",
+        "public_time": "2024-06-25"
     },
     "Grit and Grace": {
         "Genre": "Country",
         "Creator": "Alexander Whitman",
         "Independent Musicians": true,
         "Views": 200,
-        "Likes": 143,
         "Comments": 50,
         "path": "assets/songs/Grit_and_Grace.mp3",
-        "album cover": "assets/covers/Grit_and_Grace.png"
+        "album cover": "assets/covers/Grit_and_Grace.png",
+        "public_time": "2024-06-11"
     },
     "Underneath the Old Oak Tree": {
         "Genre": "Country",
         "Creator": "Ava Thompson",
         "Independent Musicians": true,
         "Views": 750,
-        "Likes": 611,
         "Comments": 132,
         "path": "assets/songs/Underneath_the_Old_Oak_Tree.mp3",
-        "album cover": "assets/covers/Underneath_the_Old_Oak_Tree.png"
+        "album cover": "assets/covers/Underneath_the_Old_Oak_Tree.png",
+        "public_time": "2024-05-27"
     },
     "Electric Love": {
         "Genre": "Electric",
         "Creator": "Mason Garcia",
         "Independent Musicians": true,
         "Views": 872,
-        "Likes": 732,
         "Comments": 154,
         "path": "assets/songs/Electric_Love.mp3",
-        "album cover": "assets/covers/Electric_Love.png"
+        "album cover": "assets/covers/Electric_Love.png",
+        "public_time": "2024-06-19"
     },
     "Neon Lights": {
         "Genre": "Electric",
         "Creator": "Ella Martinez",
         "Independent Musicians": true,
         "Views": 678,
-        "Likes": 523,
         "Comments": 107,
         "path": "assets/songs/Neon_Lights.mp3",
-        "album cover": "assets/covers/Neon_Lights.png"
+        "album cover": "assets/covers/Neon_Lights.png",
+        "public_time": "2024-05-22"
     },
     "Sunset Dreams": {
         "Genre": "Relaxing",
         "Creator": "Jackson Lee",
         "Independent Musicians": true,
         "Views": 523,
-        "Likes": 421,
         "Comments": 89,
         "path": "assets/songs/Sunset_Dreams.mp3",
-        "album cover": "assets/covers/Sunset_Dreams.png"
+        "album cover": "assets/covers/Sunset_Dreams.png",
+        "public_time": "2024-06-06"
     },
     "Lullaby of Dreams": {
         "Genre": "Relaxing",
         "Creator": "Emily Gonzalez",
         "Independent Musicians": true,
         "Views": 645,
-        "Likes": 534,
         "Comments": 112,
         "path": "assets/songs/Lullaby_of_Dreams.mp3",
-        "album cover": "assets/covers/Lullaby_of_Dreams.png"
+        "album cover": "assets/covers/Lullaby_of_Dreams.png",
+        "public_time": "2024-06-24"
     }
 }
