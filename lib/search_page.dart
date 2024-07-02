@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:convert'; // Import JSON handling
 import 'package:flutter/services.dart' show rootBundle;
+import 'genre_page.dart'; // Import the genre songs page
 
 class SearchPage extends StatefulWidget {
   @override
@@ -11,6 +12,7 @@ class _SearchPageState extends State<SearchPage> {
   TextEditingController searchController = TextEditingController();
   List<String> songNames = ["Song 1", "Song 2", "Song 3", "Song 4"];
   List<String> musicGenres = ["Pop", "Rock", "Jazz", "Hip Hop", "Classical", "Country", "Electronic", "Reggae"];
+  List<Map<String, String>> songs = [];
   List<Map<String, String>> latestMusic = [];
 
   bool showGridView = true;
@@ -30,20 +32,22 @@ class _SearchPageState extends State<SearchPage> {
     try {
       final String response = await rootBundle.loadString('lib/assets/songs.json');
       final Map<String, dynamic> data = json.decode(response);
-      List<Map<String, String>> songs = [];
+      List<Map<String, String>> allSongs = [];
 
       data.forEach((key, value) {
         Map<String, String> song = {
           "title": key,
           "public_time": value["public_time"],
           "Creator": value["Creator"],
+          "Genre": value["Genre"],
         };
-        songs.add(song);
+        allSongs.add(song);
       });
 
-      songs.sort((a, b) => b["public_time"]!.compareTo(a["public_time"]!));
+      allSongs.sort((a, b) => b["public_time"]!.compareTo(a["public_time"]!));
       setState(() {
-        latestMusic = songs.take(10).toList();
+        songs = allSongs;
+        latestMusic = allSongs.take(10).toList();
         isLoading = false;
       });
 
@@ -58,6 +62,16 @@ class _SearchPageState extends State<SearchPage> {
         isLoading = false;
       });
     }
+  }
+
+  void navigateToGenreSongs(String genre) {
+    List<Map<String, String>> genreSongs = songs.where((song) => song['Genre'] == genre).toList();
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => GenreSongsPage(genre: genre, songs: genreSongs),
+      ),
+    );
   }
 
   @override
@@ -189,7 +203,7 @@ class _SearchPageState extends State<SearchPage> {
                 itemBuilder: (context, index) {
                   return InkWell(
                     onTap: () {
-                      // Handle genre item tap
+                      navigateToGenreSongs(musicGenres[index]);
                     },
                     child: Container(
                       alignment: Alignment.center,
