@@ -26,17 +26,22 @@ class _HomePageState extends State<HomePage> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            padding: EdgeInsets.all(34),
+            padding: EdgeInsets.all(45),
             height: 300,
             width: 300,
             decoration: BoxDecoration(
-                gradient: const LinearGradient(
-                  colors: [
-                    Colors.grey,
-                    Colors.black,
-                  ],
-                ),
-                borderRadius: BorderRadius.circular(180)),
+              image: const DecorationImage(
+                image: AssetImage("lib/assets/cd2.png"),
+                fit: BoxFit.cover,
+              ),
+              // gradient: const LinearGradient(
+              //   colors: [
+              //     Colors.grey,
+              //     Colors.black,
+              //   ],
+              // ),
+              borderRadius: BorderRadius.circular(180),
+            ),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(180),
               child: Image(
