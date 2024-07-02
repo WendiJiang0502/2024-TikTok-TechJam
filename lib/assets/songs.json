@@ -6,8 +6,8 @@
         "Views": 543,
         "Likes": 259,
         "Comments": 123,
-        "path": "assets/songs/Unveiled_Serenade.mp3",
-        "album cover": "assets/covers/Unveiled_Serenade.png"
+        "path": "lib/assets/songs/Unveiled_Serenade.mp3",
+        "album cover": "lib/assets/covers/Unveiled_Serenade.png"
     },
     "Moonlit Serenade": {
         "Genre": "Jazz",
@@ -16,8 +16,8 @@
         "Views": 789,
         "Likes": 546,
         "Comments": 89,
-        "path": "assets/songs/Moonlit_Serenade.mp3",
-        "album cover": "assets/covers/Moonlit_Serenade.png"
+        "path": "lib/assets/songs/Moonlit_Serenade.mp3",
+        "album cover": "lib/assets/covers/Moonlit_Serenade.png"
     },
     "Love in the Air": {
         "Genre": "Pop",
@@ -26,8 +26,8 @@
         "Views": 652,
         "Likes": 473,
         "Comments": 150,
-        "path": "assets/songs/Love_in_the_Air.mp3",
-        "album cover": "assets/covers/Love_in_the_Air.png"
+        "path": "lib/assets/songs/Love_in_the_Air.mp3",
+        "album cover": "lib/assets/covers/Love_in_the_Air.png"
     },
     "Dancing in the Moonlight": {
         "Genre": "Pop",
@@ -36,8 +36,8 @@
         "Views": 478,
         "Likes": 300,
         "Comments": 67,
-        "path": "assets/songs/Dancing_in_the_Moonlight.mp3",
-        "album cover": "assets/covers/Dancing_in_the_Moonlight.png"
+        "path": "lib/assets/songs/Dancing_in_the_Moonlight.mp3",
+        "album cover": "lib/assets/covers/Dancing_in_the_Moonlight.png"
     },
     "Chasing Shadows": {
         "Genre": "Rock",
@@ -46,8 +46,8 @@
         "Views": 812,
         "Likes": 721,
         "Comments": 143,
-        "path": "assets/songs/Chasing_Shadows.mp3",
-        "album cover": "assets/covers/Chasing_Shadows.png"
+        "path": "lib/assets/songs/Chasing_Shadows.mp3",
+        "album cover": "lib/assets/covers/Chasing_Shadows.png"
     },
     "Broken Mirrors": {
         "Genre": "Rock",
@@ -56,8 +56,8 @@
         "Views": 590,
         "Likes": 489,
         "Comments": 120,
-        "path": "assets/songs/Broken_Mirrors.mp3",
-        "album cover": "assets/covers/Broken_Mirrors.png"
+        "path": "lib/assets/songs/Broken_Mirrors.mp3",
+        "album cover": "lib/assets/covers/Broken_Mirrors.png"
     },
     "City Lights": {
         "Genre": "Hip Hop",
@@ -66,8 +66,8 @@
         "Views": 710,
         "Likes": 401,
         "Comments": 98,
-        "path": "assets/songs/City_Lights.mp3",
-        "album cover": "assets/covers/City_Lights.png"
+        "path": "lib/assets/songs/City_Lights.mp3",
+        "album cover": "lib/assets/covers/City_Lights.png"
     },
     "Walkin' These Streets": {
         "Genre": "Hip Hop",
@@ -76,8 +76,8 @@
         "Views": 930,
         "Likes": 721,
         "Comments": 187,
-        "path": "assets/songs/Walkin_These_Streets.mp3",
-        "album cover": "assets/covers/Walkin_These_Streets.png"
+        "path": "lib/assets/songs/Walkin_These_Streets.mp3",
+        "album cover": "lib/assets/covers/Walkin_These_Streets.png"
     },
     "Forever in Time": {
         "Genre": "Classical",
@@ -86,8 +86,8 @@
         "Views": 812,
         "Likes": 612,
         "Comments": 145,
-        "path": "assets/songs/Forever_in_Time.mp3",
-        "album cover": "assets/covers/Forever_in_Time.png"
+        "path": "lib/assets/songs/Forever_in_Time.mp3",
+        "album cover": "lib/assets/covers/Forever_in_Time.png"
     },
     "Peaceful Journey": {
         "Genre": "Classical",
@@ -96,8 +96,8 @@
         "Views": 721,
         "Likes": 540,
         "Comments": 132,
-        "path": "assets/songs/Peaceful_Journey.mp3",
-        "album cover": "assets/covers/Peaceful_Journey.png"
+        "path": "lib/assets/songs/Peaceful_Journey.mp3",
+        "album cover": "lib/assets/covers/Peaceful_Journey.png"
     },
     "Timeless Moments": {
         "Genre": "Classical",
@@ -106,8 +106,8 @@
         "Views": 941,
         "Likes": 823,
         "Comments": 176,
-        "path": "assets/songs/Timeless_Moments.mp3",
-        "album cover": "assets/covers/Timeless_Moments.png"
+        "path": "lib/assets/songs/Timeless_Moments.mp3",
+        "album cover": "lib/assets/covers/Timeless_Moments.png"
     },
     "Dreamscape": {
         "Genre": "Classical",
@@ -116,8 +116,8 @@
         "Views": 614,
         "Likes": 512,
         "Comments": 89,
-        "path": "assets/songs/Dreamscape.mp3",
-        "album cover": "assets/covers/Dreamscape.png"
+        "path": "lib/assets/songs/Dreamscape.mp3",
+        "album cover": "lib/assets/covers/Dreamscape.png"
     },
     "Grit and Grace": {
         "Genre": "Country",
@@ -126,8 +126,8 @@
         "Views": 200,
         "Likes": 143,
         "Comments": 50,
-        "path": "assets/songs/Grit_and_Grace.mp3",
-        "album cover": "assets/covers/Grit_and_Grace.png"
+        "path": "lib/assets/songs/Grit_and_Grace.mp3",
+        "album cover": "lib/assets/covers/Grit_and_Grace.png"
     },
     "Underneath the Old Oak Tree": {
         "Genre": "Country",
@@ -136,8 +136,8 @@
         "Views": 750,
         "Likes": 611,
         "Comments": 132,
-        "path": "assets/songs/Underneath_the_Old_Oak_Tree.mp3",
-        "album cover": "assets/covers/Underneath_the_Old_Oak_Tree.png"
+        "path": "lib/assets/songs/Underneath_the_Old_Oak_Tree.mp3",
+        "album cover": "lib/assets/covers/Underneath_the_Old_Oak_Tree.png"
     },
     "Electric Love": {
         "Genre": "Electric",
@@ -146,8 +146,8 @@
         "Views": 872,
         "Likes": 732,
         "Comments": 154,
-        "path": "assets/songs/Electric_Love.mp3",
-        "album cover": "assets/covers/Electric_Love.png"
+        "path": "lib/assets/songs/Electric_Love.mp3",
+        "album cover": "lib/assets/covers/Electric_Love.png"
     },
     "Neon Lights": {
         "Genre": "Electric",
@@ -156,8 +156,8 @@
         "Views": 678,
         "Likes": 523,
         "Comments": 107,
-        "path": "assets/songs/Neon_Lights.mp3",
-        "album cover": "assets/covers/Neon_Lights.png"
+        "path": "lib/assets/songs/Neon_Lights.mp3",
+        "album cover": "lib/assets/covers/Neon_Lights.png"
     },
     "Sunset Dreams": {
         "Genre": "Relaxing",
@@ -166,8 +166,8 @@
         "Views": 523,
         "Likes": 421,
         "Comments": 89,
-        "path": "assets/songs/Sunset_Dreams.mp3",
-        "album cover": "assets/covers/Sunset_Dreams.png"
+        "path": "lib/assets/songs/Sunset_Dreams.mp3",
+        "album cover": "lib/assets/covers/Sunset_Dreams.png"
     },
     "Lullaby of Dreams": {
         "Genre": "Relaxing",
@@ -176,7 +176,7 @@
         "Views": 645,
         "Likes": 534,
         "Comments": 112,
-        "path": "assets/songs/Lullaby_of_Dreams.mp3",
-        "album cover": "assets/covers/Lullaby_of_Dreams.png"
+        "path": "lib/assets/songs/Lullaby_of_Dreams.mp3",
+        "album cover": "lib/assets/covers/Lullaby_of_Dreams.png"
     }
 }

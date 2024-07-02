@@ -23,6 +23,7 @@ class _VideoDisplayState extends State<VideoDisplay> {
   void initState() {
     super.initState();
     videoPlayerController = VideoPlayerController.asset("lib/assets/songs/Broken_Mirrors.mp3")
+    // videoPlayerController = VideoPlayerController.asset(widget.video_path)
       // ..addListener(() => setState(() {}))
       ..setLooping(true)
       ..initialize().then((value){
@@ -42,7 +43,7 @@ class _VideoDisplayState extends State<VideoDisplay> {
   Widget build(BuildContext context) {
 
     final size = MediaQuery.of(context).size;
-
+ 
     return Container(
       width: size.width,
       height: size.height,
