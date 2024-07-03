@@ -262,6 +262,115 @@
             "path": "lib/assets/songs/Disconnected_Youth.mp3",
             "album cover": "lib/assets/covers/Disconnected_Youth.png",
             "public_time": "2023-12-01"
-        }
+        },
+        "Moonlit Stroll": {
+        "Genre": "Jazz",
+        "Creator": "Emily Johnson",
+        "Independent Musicians": false,
+        "Views": 987,
+        "Likes": 755,
+        "Comments": 289,
+        "path": "lib/assets/songs/Moonlit_Stroll.mp3",
+        "album cover": "lib/assets/covers/Moonlit_Stroll.png",
+        "public_time": "2024-06-12"
+    },
+    "Backroads and Blue Jeans": {
+        "Genre": "Country",
+        "Creator": "Michael Adams",
+        "Independent Musicians": false,
+        "Views": 1150,
+        "Likes": 830,
+        "Comments": 378,
+        "path": "lib/assets/songs/Backroads_and_Blue_Jeans.mp3",
+        "album cover": "lib/assets/covers/Backroads_and_Blue_Jeans.png",
+        "public_time": "2024-05-18"
+    },
+    "Lost in the Pine": {
+        "Genre": "Country",
+        "Creator": "Sarah Williams",
+        "Independent Musicians": false,
+        "Views": 1320,
+        "Likes": 965,
+        "Comments": 432,
+        "path": "lib/assets/songs/Lost_in_the_Pine.mp3",
+        "album cover": "lib/assets/covers/Lost_in_the_Pine.png",
+        "public_time": "2024-04-30"
+    },
+    "Electric Dreams": {
+        "Genre": "Electronic",
+        "Creator": "David Martinez",
+        "Independent Musicians": false,
+        "Views": 1275,
+        "Likes": 987,
+        "Comments": 450,
+        "path": "lib/assets/songs/Electric_Dreams.mp3",
+        "album cover": "lib/assets/covers/Electric_Dreams.png",
+        "public_time": "2024-05-10"
+    },
+    "Flashing Lights": {
+        "Genre": "Electronic",
+        "Creator": "Olivia White",
+        "Independent Musicians": false,
+        "Views": 1045,
+        "Likes": 765,
+        "Comments": 312,
+        "path": "lib/assets/songs/Flashing_Lights.mp3",
+        "album cover": "lib/assets/covers/Flashing_Lights.png",
+        "public_time": "2024-06-07"
+    },
+    "Night Sky Dreams": {
+        "Genre": "Electronic",
+        "Creator": "Sophia Green",
+        "Independent Musicians": false,
+        "Views": 1130,
+        "Likes": 825,
+        "Comments": 376,
+        "path": "lib/assets/songs/Night_Sky_Dreams.mp3",
+        "album cover": "lib/assets/covers/Night_Sky_Dreams.png",
+        "public_time": "2024-05-15"
+    },
+    "Digital Dreams": {
+        "Genre": "Electronic",
+        "Creator": "James Brown",
+        "Independent Musicians": false,
+        "Views": 1080,
+        "Likes": 790,
+        "Comments": 345,
+        "path": "lib/assets/songs/Digital_Dreams.mp3",
+        "album cover": "lib/assets/covers/Digital_Dreams.png",
+        "public_time": "2024-05-25"
+    },
+    "Island Sun": {
+        "Genre": "Reggae",
+        "Creator": "Jackson Wilson",
+        "Independent Musicians": false,
+        "Views": 935,
+        "Likes": 705,
+        "Comments": 298,
+        "path": "lib/assets/songs/Island_Sun.mp3",
+        "album cover": "lib/assets/covers/Island_Sun.png",
+        "public_time": "2024-04-20"
+    },
+    "Sunshine Vibes": {
+        "Genre": "Reggae",
+        "Creator": "Amelia Thomas",
+        "Independent Musicians": false,
+        "Views": 1020,
+        "Likes": 785,
+        "Comments": 345,
+        "path": "lib/assets/songs/Sunshine_Vibes.mp3",
+        "album cover": "lib/assets/covers/Sunshine_Vibes.png",
+        "public_time": "2024-06-10"
+    },
+    "Dancing Waves": {
+        "Genre": "Reggae",
+        "Creator": "Benjamin Taylor",
+        "Independent Musicians": false,
+        "Views": 980,
+        "Likes": 750,
+        "Comments": 320,
+        "path": "lib/assets/songs/Dancing_Waves.mp3",
+        "album cover": "lib/assets/covers/Dancing_Waves.png",
+        "public_time": "2024-05-28"
+    }
 }
-    
