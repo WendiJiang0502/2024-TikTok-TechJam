@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:temp_flutter/objects/video.dart';
 
 class ProfilePage extends StatelessWidget {
   @override

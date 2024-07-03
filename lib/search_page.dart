@@ -11,12 +11,22 @@ class SearchPage extends StatefulWidget {
 class _SearchPageState extends State<SearchPage> {
   TextEditingController searchController = TextEditingController();
   List<String> songNames = ["Song 1", "Song 2", "Song 3", "Song 4"];
-  List<String> musicGenres = ["Pop", "Rock", "Jazz", "Hip Hop", "Classical", "Country", "Electronic", "Reggae"];
+  List<String> musicGenres = [
+    "Pop",
+    "Rock",
+    "Jazz",
+    "Hip Hop",
+    "Classical",
+    "Country",
+    "Electronic",
+    "Reggae"
+  ];
   List<Map<String, String>> songs = [];
   List<Map<String, String>> latestMusic = [];
 
   bool showGridView = true;
   bool isLoading = false;
+  bool _isGenreTabSelected = true;
 
   @override
   void initState() {
@@ -30,7 +40,8 @@ class _SearchPageState extends State<SearchPage> {
     });
 
     try {
-      final String response = await rootBundle.loadString('lib/assets/songs.json');
+      final String response =
+          await rootBundle.loadString('lib/assets/songs.json');
       final Map<String, dynamic> data = json.decode(response);
       List<Map<String, String>> allSongs = [];
 
@@ -50,7 +61,7 @@ class _SearchPageState extends State<SearchPage> {
         latestMusic = allSongs.take(10).toList();
         isLoading = false;
       });
-
+      print(songs);
       // Debugging: Print loaded songs
       print("Loaded songs:");
       latestMusic.forEach((song) {
@@ -65,7 +76,8 @@ class _SearchPageState extends State<SearchPage> {
   }
 
   void navigateToGenreSongs(String genre) {
-    List<Map<String, String>> genreSongs = songs.where((song) => song['Genre'] == genre).toList();
+    List<Map<String, String>> genreSongs =
+        songs.where((song) => song['Genre'] == genre).toList();
     Navigator.push(
       context,
       MaterialPageRoute(
@@ -98,16 +110,17 @@ class _SearchPageState extends State<SearchPage> {
                     borderSide: BorderSide.none,
                   ),
                   filled: true,
-                  contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 16),
+                  contentPadding:
+                      EdgeInsets.symmetric(vertical: 0, horizontal: 16),
                   prefixIcon: Icon(Icons.search, color: Colors.black),
                   suffixIcon: searchController.text.isNotEmpty
                       ? IconButton(
-                    icon: Icon(Icons.cancel, color: Colors.black),
-                    onPressed: () {
-                      searchController.clear();
-                      setState(() {});
-                    },
-                  )
+                          icon: Icon(Icons.cancel, color: Colors.black),
+                          onPressed: () {
+                            searchController.clear();
+                            setState(() {});
+                          },
+                        )
                       : null,
                 ),
                 onChanged: (value) {
@@ -134,7 +147,10 @@ class _SearchPageState extends State<SearchPage> {
               },
               child: Text(
                 "Search",
-                style: TextStyle(color: Colors.red, fontSize: 18, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                    color: Colors.red,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold),
               ),
             ),
           ],
@@ -168,22 +184,48 @@ class _SearchPageState extends State<SearchPage> {
                     onPressed: () {
                       setState(() {
                         showGridView = true;
+                        _isGenreTabSelected = true;
                       });
                     },
                     child: Text(
                       "Music by Genre",
-                      style: TextStyle(color: Colors.red, fontSize: 18, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                        color: _isGenreTabSelected
+                            ? Colors.red
+                            : Color.fromARGB(158, 244, 67, 54),
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        decoration: _isGenreTabSelected
+                            ? TextDecoration.underline
+                            : TextDecoration.none,
+                        decorationColor: _isGenreTabSelected
+                            ? Colors.red
+                            : Color.fromARGB(158, 244, 67, 54),
+                      ),
                     ),
                   ),
                   TextButton(
                     onPressed: () {
                       setState(() {
                         showGridView = false;
+                        _isGenreTabSelected = false;
                       });
                     },
                     child: Text(
                       "Latest Music",
-                      style: TextStyle(color: Colors.red, fontSize: 18, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                        color: !_isGenreTabSelected
+                            ? Colors.red
+                            : Color.fromARGB(158, 244, 67, 54),
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        decoration: !_isGenreTabSelected
+                            ? TextDecoration.underline
+                            : TextDecoration.none,
+                        decorationColor: !_isGenreTabSelected
+                            ? Colors.red
+                            : Color.fromARGB(158, 244, 67, 54),
+                      ),
                     ),
                   ),
                 ],
@@ -216,21 +258,21 @@ class _SearchPageState extends State<SearchPage> {
                   );
                 },
               )
-              else
-                ListView.builder(
-                  physics: NeverScrollableScrollPhysics(),
-                  shrinkWrap: true,
-                  itemCount: latestMusic.length,
-                  itemBuilder: (context, index) {
-                    return ListTile(
-                      title: Text(latestMusic[index]['title']!),
-                      subtitle: Text('${latestMusic[index]['Creator']!}'),
-                      onTap: () {
-                        // Handle latest music item tap
-                      },
-                    );
-                  },
-                ),
+            else
+              ListView.builder(
+                physics: NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                itemCount: latestMusic.length,
+                itemBuilder: (context, index) {
+                  return ListTile(
+                    title: Text(latestMusic[index]['title']!),
+                    subtitle: Text('${latestMusic[index]['Creator']!}'),
+                    onTap: () {
+                      // Handle latest music item tap
+                    },
+                  );
+                },
+              ),
           ],
         ),
       ),
