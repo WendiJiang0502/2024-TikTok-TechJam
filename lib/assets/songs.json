@@ -196,6 +196,72 @@
             "path": "lib/assets/songs/Lullaby_of_Dreams.mp3",
             "album cover": "lib/assets/covers/Lullaby_of_Dreams.png",
             "public_time": "2024-06-24"
+        },
+        "Moonlight on the Terrace": {
+            "Genre": "Jazz",
+            "Creator": "John Smith",
+            "Independent Musicians": true,
+            "Views": 1187,
+            "Likes": 865,
+            "Comments": 352,
+            "path": "lib/assets/songs/Moonlight_on_the_Terrace.mp3",
+            "album cover": "lib/assets/covers/Moonlight_on_the_Terrace.png",
+            "public_time": "2024-06-01"
+        },
+        "Moonlit Rendezvous": {
+            "Genre": "Jazz",
+            "Creator": "Emma Johnson",
+            "Independent Musicians": true,
+            "Views": 1294,
+            "Likes": 943,
+            "Comments": 416,
+            "path": "lib/assets/songs/Moonlit_Rendezvous.mp3",
+            "album cover": "lib/assets/covers/Moonlit_Rendezvous.png",
+            "public_time": "2024-07-01"
+        },
+        "Heart on Fire": {
+            "Genre": "Pop",
+            "Creator": "Sophia Lee",
+            "Independent Musicians": true,
+            "Views": 1458,
+            "Likes": 987,
+            "Comments": 523,
+            "path": "lib/assets/songs/Heart_on_Fire.mp3",
+            "album cover": "lib/assets/covers/Heart_on_Fire.png",
+            "public_time": "2024-07-02"
+        },
+        "Shining Star": {
+            "Genre": "Pop",
+            "Creator": "Isabella Martinez",
+            "Independent Musicians": true,
+            "Views": 1765,
+            "Likes": 1123,
+            "Comments": 658,
+            "path": "lib/assets/songs/Shining_Star.mp3",
+            "album cover": "lib/assets/covers/Shining_Star.png",
+            "public_time": "2024-06-15"
+        },
+        "Walking Through Fire": {
+            "Genre": "Rock",
+            "Creator": "Olivia Brown",
+            "Independent Musicians": true,
+            "Views": 1589,
+            "Likes": 1203,
+            "Comments": 542,
+            "path": "lib/assets/songs/Walking_Through_Fire.mp3",
+            "album cover": "lib/assets/covers/Walking_Through_Fire.png",
+            "public_time": "2024-07-03"
+        },
+        "Disconnected Youth": {
+            "Genre": "Rock",
+            "Creator": "The Wild Ones",
+            "Independent Musicians": true,
+            "Views": 1342,
+            "Likes": 965,
+            "Comments": 488,
+            "path": "lib/assets/songs/Disconnected_Youth.mp3",
+            "album cover": "lib/assets/covers/Disconnected_Youth.png",
+            "public_time": "2023-12-01"
         }
 }
     
