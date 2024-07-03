@@ -111,6 +111,8 @@ def main():
 
     if initial_recommendations:
         additional_recommendations = get_song_recommendations(initial_recommendations[0]['Title'], df, similarity)
+    else:
+        additional_recommendations = []
 
     combined_recommendations = initial_recommendations + [{"Title": song} for song in additional_recommendations]
     recommendation_titles = [song['Title'] for song in combined_recommendations]
