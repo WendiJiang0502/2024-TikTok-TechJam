@@ -16,6 +16,7 @@ class _SearchResultPageState extends State<SearchResultPage> {
   static List<Video> songsInDB = Get.put(VideoController()).videoList;
 
   List<Video> results = List.from(songsInDB);
+  List<Video> promotedsongs = [];
   //element.name.toLowerCase().contains(value.toLowerCase())
 
   void searchSongs(String value) {
@@ -25,8 +26,18 @@ class _SearchResultPageState extends State<SearchResultPage> {
               (element.name.toLowerCase().contains(value.toLowerCase()) ||
                   element.creator.toLowerCase().contains(value.toLowerCase())))
           .toList();
+      promotedSongs(results);
+
+      // results.insert(0, promotedsongs[0]);
+      // results.insert(1, promotedsongs[1]);
+      for(var i = 0; i < promotedsongs.length; ++i){
+        results.insert(i, promotedsongs[i]);
+      }
+      // promotedsongs = [];
+
     });
   }
+
   void openPlayer(Video song) {
     Navigator.push(
       context,
@@ -36,7 +47,55 @@ class _SearchResultPageState extends State<SearchResultPage> {
     );
   }
 
+  void promotedSongs(List<Video> results) {
+    setState(() {
+      promotedsongs = [];
+      if (results.any((song) => song.by_Independent_Musicians)) {
+        List<Video> independentSongs =
+            songsInDB.where((song) => song.by_Independent_Musicians).toList();
+        independentSongs.sort((a, b) {
+          double scoreA = a.likes / a.views;
+          double scoreB = b.likes / b.views;
+          return scoreB.compareTo(scoreA);
+        });
+        if (independentSongs.length >= 2){
+          promotedsongs = independentSongs.take(2).toList();
+        }
+        else{
+          promotedsongs = independentSongs.take(1).toList();
+          results.removeWhere((song) => song.name == promotedsongs[0].name);
+          results.sort((a, b) {
+            double scoreA = a.likes / a.views;
+            double scoreB = b.likes / b.views;
+            return scoreB.compareTo(scoreA);
+          });
+          promotedsongs.add(results[0]);
+          return;
+        }
+      } 
+      else {
+        results.sort((a, b) {
+          double scoreA = a.likes / a.views;
+          double scoreB = b.likes / b.views;
+          return scoreB.compareTo(scoreA);
+        });
+        promotedsongs = results.take(2).toList();
+      }
+      promotedsongs.forEach((promotedSong) {
+        results.removeWhere((song) => song.name == promotedSong.name);
+      });
+    });
+  }
+
+  void writeMeJson() {}
+
   var keyword = "";
+  @override
+  void initState() {
+    // TODO: implement initState
+    searchSongs("");
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -77,17 +136,18 @@ class _SearchResultPageState extends State<SearchResultPage> {
                 ),
                 onChanged: (value) {
                   searchSongs(value);
+                  promotedSongs(results);
                   keyword = value;
                 },
-                // onSubmitted: (value) {
-                //   searchSongs(value);
-                //   keyword = value;
-                // },
+                onSubmitted: (value) {
+                  searchSongs(value);
+                  keyword = value;
+                },
               ),
             ),
             TextButton(
               onPressed: () {
-                // searchSongs(keyword);
+                searchSongs(keyword);
               },
               child: Text(
                 "Search",
@@ -109,8 +169,8 @@ class _SearchResultPageState extends State<SearchResultPage> {
               ),
             )
           : Column(
-            children: [
-              Expanded(
+              children: [
+                Expanded(
                   child: ListView.builder(
                     itemCount: results.length,
                     itemBuilder: ((context, index) => ListTile(
@@ -148,6 +208,29 @@ class _SearchResultPageState extends State<SearchResultPage> {
                               ),
                             ],
                           ),
+                          trailing: (index == 1 || index == 0)? Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                ((results[index].likes /
+                                            results[index].views) *
+                                        10)
+                                    .toStringAsFixed(2),
+                                style: TextStyle(
+                                    color: Color.fromARGB(255, 223, 183, 24),
+                                    fontSize: 15,
+                                    fontStyle: FontStyle.italic),
+                              ),
+                              Text(
+                                "Promoted",
+                                style: TextStyle(
+                                  color: Color.fromARGB(255, 159, 71, 252),
+                                  fontSize: 10,
+                                ),
+                                textAlign: TextAlign.left,
+                              ),
+                            ],
+                          ):Column(),
                           leading: Image.asset(results[index].cover_path),
                           onTap: () {
                             openPlayer(results[index]);
@@ -155,8 +238,8 @@ class _SearchResultPageState extends State<SearchResultPage> {
                         )),
                   ),
                 ),
-            ],
-          ),
+              ],
+            ),
     );
   }
 }
