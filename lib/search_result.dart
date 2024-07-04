@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:temp_flutter/controllers/video_controller.dart';
 import 'package:temp_flutter/objects/video.dart';
 import 'package:get/get.dart';
+import 'package:temp_flutter/pop_player.dart';
 
 class SearchResultPage extends StatefulWidget {
   const SearchResultPage({super.key});
@@ -25,6 +26,14 @@ class _SearchResultPageState extends State<SearchResultPage> {
                   element.creator.toLowerCase().contains(value.toLowerCase())))
           .toList();
     });
+  }
+  void openPlayer(Video song) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => PopPlayer(song: song),
+      ),
+    );
   }
 
   var keyword = "";
@@ -140,6 +149,9 @@ class _SearchResultPageState extends State<SearchResultPage> {
                             ],
                           ),
                           leading: Image.asset(results[index].cover_path),
+                          onTap: () {
+                            openPlayer(results[index]);
+                          },
                         )),
                   ),
                 ),
