@@ -8,9 +8,9 @@ import pickle
 from datetime import datetime, timedelta
 
 nltk.download('punkt')
-with open('lib/me.json', 'r') as f:
+with open('me.json', 'r') as f:
     user_data = json.load(f)
-with open('lib/assets/songs.json', 'r') as f:
+with open('assets/songs.json', 'r') as f:
     songs_data = json.load(f)
 
 

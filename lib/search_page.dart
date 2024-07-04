@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:convert'; // Import JSON handling
 import 'package:flutter/services.dart' show rootBundle;
 import 'genre_page.dart'; // Import the genre songs page
+import 'package:temp_flutter/search_result.dart';
 
 class SearchPage extends StatefulWidget {
   @override
@@ -123,6 +124,12 @@ class _SearchPageState extends State<SearchPage> {
                         )
                       : null,
                 ),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => SearchResultPage()),
+                  );
+                },
                 onChanged: (value) {
                   setState(() {});
                 },
