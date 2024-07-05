@@ -5,11 +5,11 @@ from recommender import recommend_songs
 app = Flask(__name__)
 
 # Load song data from JSON files
-with open('lib/assets/songs.json', 'r') as f:
+with open('assets/songs.json', 'r') as f:
     songs_data = json.load(f)
 
 # Load user data from JSON file
-with open('lib/me.json', 'r') as f:
+with open('me.json', 'r') as f:
     user_data = json.load(f)
 
 @app.route('/recommendations', methods=['GET'])

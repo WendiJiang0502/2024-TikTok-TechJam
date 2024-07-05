@@ -3,6 +3,10 @@ import 'package:temp_flutter/controllers/video_controller.dart';
 import 'package:temp_flutter/objects/video.dart';
 import 'package:get/get.dart';
 import 'package:temp_flutter/pop_player.dart';
+import 'dart:convert';
+import 'package:flutter/services.dart';
+import 'dart:io';
+import 'package:path_provider/path_provider.dart';
 
 class SearchResultPage extends StatefulWidget {
   const SearchResultPage({super.key});
@@ -30,11 +34,10 @@ class _SearchResultPageState extends State<SearchResultPage> {
 
       // results.insert(0, promotedsongs[0]);
       // results.insert(1, promotedsongs[1]);
-      for(var i = 0; i < promotedsongs.length; ++i){
+      for (var i = 0; i < promotedsongs.length; ++i) {
         results.insert(i, promotedsongs[i]);
       }
       // promotedsongs = [];
-
     });
   }
 
@@ -58,10 +61,9 @@ class _SearchResultPageState extends State<SearchResultPage> {
           double scoreB = b.likes / b.views;
           return scoreB.compareTo(scoreA);
         });
-        if (independentSongs.length >= 2){
+        if (independentSongs.length >= 2) {
           promotedsongs = independentSongs.take(2).toList();
-        }
-        else{
+        } else {
           promotedsongs = independentSongs.take(1).toList();
           results.removeWhere((song) => song.name == promotedsongs[0].name);
           results.sort((a, b) {
@@ -72,8 +74,7 @@ class _SearchResultPageState extends State<SearchResultPage> {
           promotedsongs.add(results[0]);
           return;
         }
-      } 
-      else {
+      } else {
         results.sort((a, b) {
           double scoreA = a.likes / a.views;
           double scoreB = b.likes / b.views;
@@ -87,12 +88,71 @@ class _SearchResultPageState extends State<SearchResultPage> {
     });
   }
 
-  void writeMeJson() {}
+  Map<String, dynamic> profileInfo = {};
+
+  Future<String> get _localPath async {
+    final directory = await getExternalStorageDirectory();
+
+    return directory!.path;
+  }
+
+  Future<File> get _localFile async {
+    final path = await _localPath;
+    return File('$path/me.json');
+  }
+
+  void getUserInfo() async {
+    final String jsonString = await rootBundle.loadString("lib/me.json");
+    final Map<String, dynamic> data = json.decode(jsonString);
+    setState(() {
+      profileInfo = data;
+    });
+  }
+
+
+  Map<String, dynamic> me = {};
+
+  void readJson() async {
+    final file = await _localFile;
+    final contents = await file.readAsString();
+    me = jsonDecode(contents);
+    print(me);
+  }
+
+  Future<File> createUserJson() async {
+    final file = await _localFile;
+
+    // Write the file
+    return file.writeAsString(json.encode(profileInfo));
+  }
+
+//   Future<void> writeJson(String filePath, Map<String, dynamic> jsonContent) async {
+//   final file = File(filePath);
+//   await file.writeAsString(json.encode(jsonContent), flush: true);
+// }
+
+  void writeMeJson(String keyword) async {
+    List<String> searchHistory =
+        List<String>.from(profileInfo['search_history'] ?? []);
+    if (searchHistory.contains(keyword)){return;}
+    if (searchHistory.length >= 2) {
+      searchHistory.removeAt(0); // Remove the oldest search term
+    }
+    searchHistory.add(keyword);
+    profileInfo['search_history'] = searchHistory;
+
+    final file = await _localFile;
+    file.writeAsString(json.encode(profileInfo), flush: true);
+    readJson();
+  }
 
   var keyword = "";
   @override
   void initState() {
     // TODO: implement initState
+    getUserInfo();
+    // createUserJson();
+    readJson();
     searchSongs("");
     super.initState();
   }
@@ -141,13 +201,17 @@ class _SearchResultPageState extends State<SearchResultPage> {
                 },
                 onSubmitted: (value) {
                   searchSongs(value);
+                  promotedSongs(results);
                   keyword = value;
+                  writeMeJson(keyword);
                 },
               ),
             ),
             TextButton(
               onPressed: () {
                 searchSongs(keyword);
+                promotedSongs(results);
+                writeMeJson(keyword);
               },
               child: Text(
                 "Search",
@@ -208,29 +272,33 @@ class _SearchResultPageState extends State<SearchResultPage> {
                               ),
                             ],
                           ),
-                          trailing: (index == 1 || index == 0)? Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                ((results[index].likes /
-                                            results[index].views) *
-                                        10)
-                                    .toStringAsFixed(2),
-                                style: TextStyle(
-                                    color: Color.fromARGB(255, 223, 183, 24),
-                                    fontSize: 15,
-                                    fontStyle: FontStyle.italic),
-                              ),
-                              Text(
-                                "Promoted",
-                                style: TextStyle(
-                                  color: Color.fromARGB(255, 159, 71, 252),
-                                  fontSize: 10,
-                                ),
-                                textAlign: TextAlign.left,
-                              ),
-                            ],
-                          ):Column(),
+                          trailing: (index == 1 || index == 0)
+                              ? Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      ((results[index].likes /
+                                                  results[index].views) *
+                                              10)
+                                          .toStringAsFixed(2),
+                                      style: TextStyle(
+                                          color:
+                                              Color.fromARGB(255, 223, 183, 24),
+                                          fontSize: 15,
+                                          fontStyle: FontStyle.italic),
+                                    ),
+                                    Text(
+                                      "Promoted",
+                                      style: TextStyle(
+                                        color:
+                                            Color.fromARGB(255, 159, 71, 252),
+                                        fontSize: 10,
+                                      ),
+                                      textAlign: TextAlign.left,
+                                    ),
+                                  ],
+                                )
+                              : Column(),
                           leading: Image.asset(results[index].cover_path),
                           onTap: () {
                             openPlayer(results[index]);

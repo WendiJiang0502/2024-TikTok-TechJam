@@ -1,20 +1,38 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:temp_flutter/objects/video.dart';
+import 'dart:convert';
 
-class ProfilePage extends StatelessWidget {
+class ProfilePage extends StatefulWidget {
+  @override
+  State<ProfilePage> createState() => _ProfilePageState();
+}
+
+class _ProfilePageState extends State<ProfilePage> {
+
+  Map<String, dynamic> profileInfo = {};
+
+  void getUserInfo() async {
+    final String jsonString = await rootBundle.loadString("lib/me.json");
+    final Map<String, dynamic> data = json.decode(jsonString);
+    setState(() {
+      profileInfo = data;
+    });
+    
+  }
+
+  @override
+  void initState() {
+    getUserInfo();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios, color: Colors.black),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
         title: Text(
           'Profile',
           style: TextStyle(color: Colors.black),
@@ -35,27 +53,27 @@ class ProfilePage extends StatelessWidget {
             SizedBox(height: 16),
             CircleAvatar(
               radius: 50,
-              backgroundImage: NetworkImage('https://www.example.com/profile_image.jpg'), // Replace with actual image URL
+              backgroundImage: AssetImage(profileInfo["profile_picture"]),
             ),
             SizedBox(height: 8),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  '@userhandle',
+                  '@'+profileInfo["username"],
                   style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(width: 4),
-                Icon(
+                profileInfo["verified"]?Icon(
                   Icons.verified,
                   color: Colors.blue,
                   size: 22,
-                ),
+                ):Container(),
               ],
             ),
             SizedBox(height: 4),
             Text(
-              'Individual artist',
+              profileInfo["Independent Musicians"]? 'Individual artist':"",
               style: TextStyle(color: Colors.grey),
             ),
             SizedBox(height: 16),
@@ -65,8 +83,9 @@ class ProfilePage extends StatelessWidget {
                 Column(
                   children: [
                     Text(
-                      '100',
-                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      profileInfo["following"].toString(),
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                     ),
                     Text(
                       'Following',
@@ -78,8 +97,9 @@ class ProfilePage extends StatelessWidget {
                 Column(
                   children: [
                     Text(
-                      '200',
-                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      profileInfo["followers"].toString(),
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                     ),
                     Text(
                       'Followers',
@@ -91,8 +111,9 @@ class ProfilePage extends StatelessWidget {
                 Column(
                   children: [
                     Text(
-                      '300',
-                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      profileInfo["likes"].toString(),
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                     ),
                     Text(
                       'Likes',
@@ -116,9 +137,11 @@ class ProfilePage extends StatelessWidget {
               itemCount: 9, // Number of videos
               itemBuilder: (context, index) {
                 return Container(
-                  color: Colors.grey[300], // Replace with actual video thumbnail
+                  color:
+                      Colors.grey[300], // Replace with actual video thumbnail
                   child: Center(
-                    child: Icon(Icons.play_arrow, color: Colors.white, size: 50),
+                    child:
+                        Icon(Icons.play_arrow, color: Colors.white, size: 50),
                   ),
                 );
               },
