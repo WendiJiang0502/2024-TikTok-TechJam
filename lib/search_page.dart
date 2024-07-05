@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'dart:convert'; // Import JSON handling
+import 'dart:convert';
 import 'package:flutter/services.dart' show rootBundle;
-import 'genre_page.dart'; // Import the genre songs page
+import 'genre_page.dart';
 import 'package:temp_flutter/search_result.dart';
+import 'package:http/http.dart' as http;
 
 class SearchPage extends StatefulWidget {
   @override
@@ -11,7 +12,7 @@ class SearchPage extends StatefulWidget {
 
 class _SearchPageState extends State<SearchPage> {
   TextEditingController searchController = TextEditingController();
-  List<String> songNames = ["Song 1", "Song 2", "Song 3", "Song 4"];
+  List<String> songNames = [];
   List<String> musicGenres = [
     "Pop",
     "Rock",
@@ -33,6 +34,7 @@ class _SearchPageState extends State<SearchPage> {
   void initState() {
     super.initState();
     loadSongs();
+    fetchRecommendations();
   }
 
   Future<void> loadSongs() async {
@@ -42,7 +44,7 @@ class _SearchPageState extends State<SearchPage> {
 
     try {
       final String response =
-          await rootBundle.loadString('lib/assets/songs.json');
+        await rootBundle.loadString('lib/assets/songs.json');
       final Map<String, dynamic> data = json.decode(response);
       List<Map<String, String>> allSongs = [];
 
@@ -62,12 +64,6 @@ class _SearchPageState extends State<SearchPage> {
         latestMusic = allSongs.take(10).toList();
         isLoading = false;
       });
-      print(songs);
-      // Debugging: Print loaded songs
-      print("Loaded songs:");
-      latestMusic.forEach((song) {
-        print(song);
-      });
     } catch (error) {
       print("Error loading songs: $error");
       setState(() {
@@ -76,9 +72,31 @@ class _SearchPageState extends State<SearchPage> {
     }
   }
 
+  Future<void> fetchRecommendations() async {
+    setState(() {
+      isLoading = true;
+    });
+
+    final response = await http.get(
+      Uri.parse('http://127.0.0.1:5000/recommendations'),
+    );
+
+    if (response.statusCode == 200) {
+      final List<String> recommendations = List<String>.from(json.decode(response.body));
+      print('Recommendations fetched: $recommendations');
+      setState(() {
+        songNames = recommendations;
+        isLoading = false;
+      });
+    } else {
+      print('Failed to load recommendations');
+      throw Exception('Failed to load recommendations');
+    }
+  }
+
   void navigateToGenreSongs(String genre) {
     List<Map<String, String>> genreSongs =
-        songs.where((song) => song['Genre'] == genre).toList();
+    songs.where((song) => song['Genre'] == genre).toList();
     Navigator.push(
       context,
       MaterialPageRoute(
@@ -112,16 +130,16 @@ class _SearchPageState extends State<SearchPage> {
                   ),
                   filled: true,
                   contentPadding:
-                      EdgeInsets.symmetric(vertical: 0, horizontal: 16),
+                  EdgeInsets.symmetric(vertical: 0, horizontal: 16),
                   prefixIcon: Icon(Icons.search, color: Colors.black),
                   suffixIcon: searchController.text.isNotEmpty
                       ? IconButton(
-                          icon: Icon(Icons.cancel, color: Colors.black),
-                          onPressed: () {
-                            searchController.clear();
-                            setState(() {});
-                          },
-                        )
+                    icon: Icon(Icons.cancel, color: Colors.black),
+                    onPressed: () {
+                      searchController.clear();
+                      setState(() {});
+                    },
+                  )
                       : null,
                 ),
                 onTap: () {
@@ -174,14 +192,24 @@ class _SearchPageState extends State<SearchPage> {
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
             ),
-            ...songNames.map((song) {
-              return ListTile(
-                title: Text(song),
-                onTap: () {
-                  // Handle song item tap
-                },
-              );
-            }).toList(),
+            if (isLoading)
+              Center(child: CircularProgressIndicator())
+            else if (songNames.isEmpty)
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Text(
+                  "No recommendations available",
+                  style: TextStyle(fontSize: 16),
+                ),
+              )
+            else ...songNames.map((song) {
+                return ListTile(
+                  title: Text(song),
+                  onTap: () {
+                    // Handle song item tap
+                  },
+                );
+              }).toList(),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: Row(
