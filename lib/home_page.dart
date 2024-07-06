@@ -21,6 +21,12 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   bool _isMusicSelected = true;
 
+  @override
+  void initState() {
+    super.initState();
+    
+  }
+
 //lib/assets/covers/Broken_Mirrors.png
   buildMusicAlbum(String coverPath) {
     return SizedBox(
@@ -114,11 +120,11 @@ class _HomePageState extends State<HomePage> {
           )),
       body: Obx(() {
         return PageView.builder(
-            itemCount: widget._videoController.videoList.length,
+            itemCount: widget._videoController.recommendationList.length,
             controller: PageController(initialPage: 0, viewportFraction: 1),
             scrollDirection: Axis.vertical,
             itemBuilder: (context, index) {
-              final song = widget._videoController.videoList[index];
+              final song = widget._videoController.recommendationList[index];
               return Stack(
                 alignment: Alignment.center,
                 children: [

@@ -204,7 +204,7 @@ class _SearchPageState extends State<SearchPage> {
                   style: TextStyle(fontSize: 16),
                 ),
               )
-            else ...songNames.map((song) {
+            else ...songNames.take(5).map((song) {
                 return ListTile(
                   title: Text(song),
                   onTap: () {

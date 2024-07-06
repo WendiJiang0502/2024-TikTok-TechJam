@@ -23,6 +23,7 @@ class _SearchResultPageState extends State<SearchResultPage> {
   List<Video> promotedsongs = [];
   //element.name.toLowerCase().contains(value.toLowerCase())
 
+
   void searchSongs(String value) {
     setState(() {
       results = songsInDB
@@ -30,14 +31,11 @@ class _SearchResultPageState extends State<SearchResultPage> {
               (element.name.toLowerCase().contains(value.toLowerCase()) ||
                   element.creator.toLowerCase().contains(value.toLowerCase())))
           .toList();
-      promotedSongs(results);
 
       // results.insert(0, promotedsongs[0]);
       // results.insert(1, promotedsongs[1]);
-      for (var i = 0; i < promotedsongs.length; ++i) {
-        results.insert(i, promotedsongs[i]);
-      }
-      // promotedsongs = [];
+      print("before promote result:");
+      results.forEach((element) {print(element.name);});
     });
   }
 
@@ -55,12 +53,13 @@ class _SearchResultPageState extends State<SearchResultPage> {
       promotedsongs = [];
       if (results.any((song) => song.by_Independent_Musicians)) {
         List<Video> independentSongs =
-            songsInDB.where((song) => song.by_Independent_Musicians).toList();
+            results.where((song) => song.by_Independent_Musicians).toList();
         independentSongs.sort((a, b) {
           double scoreA = a.likes / a.views;
           double scoreB = b.likes / b.views;
           return scoreB.compareTo(scoreA);
         });
+        independentSongs.forEach((element) {print(element.name);});
         if (independentSongs.length >= 2) {
           promotedsongs = independentSongs.take(2).toList();
         } else {
@@ -85,6 +84,12 @@ class _SearchResultPageState extends State<SearchResultPage> {
       promotedsongs.forEach((promotedSong) {
         results.removeWhere((song) => song.name == promotedSong.name);
       });
+      for (var i = 0; i < promotedsongs.length; ++i) {
+        results.insert(i, promotedsongs[i]);
+      }
+      print("after promote result:");
+      results.forEach((element) {print(element.name);});
+      promotedsongs = [];
     });
   }
 
@@ -150,10 +155,12 @@ class _SearchResultPageState extends State<SearchResultPage> {
   @override
   void initState() {
     // TODO: implement initState
+    print(songsInDB);
     getUserInfo();
     // createUserJson();
     readJson();
     searchSongs("");
+    promotedSongs(results);
     super.initState();
   }
 
