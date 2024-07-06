@@ -151,6 +151,20 @@ class _SearchResultPageState extends State<SearchResultPage> {
     readJson();
   }
 
+  void addPreferredGenre(String genre) async {
+    List<String> preferredGenres =
+    List<String>.from(profileInfo['preferred_genres'] ?? []);
+    if (!preferredGenres.contains(genre)) {
+      preferredGenres.add(genre);
+      profileInfo['preferred_genres'] = preferredGenres;
+
+      final file = await _localFile;
+      file.writeAsString(json.encode(profileInfo), flush: true);
+      readJson();
+    }
+  }
+
+
   var keyword = "";
   @override
   void initState() {
@@ -252,9 +266,13 @@ class _SearchResultPageState extends State<SearchResultPage> {
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                          subtitle: Row(
-                            children: [
-                              Text(
+                          subtitle: GestureDetector (
+                            onTap: () {
+                              addPreferredGenre(results[index].genre);
+                            },
+                            child: Row(
+                              children: [
+                                Text(
                                 results[index].creator,
                                 style: TextStyle(
                                   color: const Color.fromARGB(255, 61, 61, 61),
@@ -277,7 +295,8 @@ class _SearchResultPageState extends State<SearchResultPage> {
                                   fontWeight: FontWeight.normal,
                                 ),
                               ),
-                            ],
+                              ],
+                            ),
                           ),
                           trailing: (index == 1 || index == 0)
                               ? Column(
