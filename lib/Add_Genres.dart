@@ -5,8 +5,8 @@ import 'package:path_provider/path_provider.dart';
 
 class AddGenres {
   Future<String> get _localPath async {
-    final directory = await getApplicationDocumentsDirectory();
-    return directory.path;
+    final directory = await getExternalStorageDirectory();
+    return directory!.path;
   }
 
   Future<File> get _meJsonFile async {
