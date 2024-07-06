@@ -156,13 +156,23 @@ class _HomePageState extends State<HomePage> {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Text(
-                                      song.creator,
-                                      style: TextStyle(
-                                        fontSize: 20,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                      ),
+                                    Row(
+                                      children: [
+                                        Text(
+                                          song.creator,
+                                          style: TextStyle(
+                                            fontSize: 20,
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                        if (song.by_Independent_Musicians)
+                                          Icon(
+                                            Icons.verified,
+                                            color: Colors.blue,
+                                            size: 20,
+                                          )
+                                      ],
                                     ),
                                     Text(
                                       song.genre,
