@@ -4,6 +4,7 @@ import 'package:flutter/services.dart' show rootBundle;
 import 'genre_page.dart';
 import 'package:temp_flutter/search_result.dart';
 import 'package:http/http.dart' as http;
+import 'package:temp_flutter/Add_Genres.dart';
 
 class SearchPage extends StatefulWidget {
   @override
@@ -29,6 +30,8 @@ class _SearchPageState extends State<SearchPage> {
   bool showGridView = true;
   bool isLoading = false;
   bool _isGenreTabSelected = true;
+
+  final AddGenres _AddGenres = AddGenres();
 
   @override
   void initState() {
@@ -96,7 +99,8 @@ class _SearchPageState extends State<SearchPage> {
     }
   }
 
-  void navigateToGenreSongs(String genre) {
+  void navigateToGenreSongs (String genre) async{
+    await _AddGenres.addGenreToPreferred(genre);
     List<Map<String, String>> genreSongs =
     songs.where((song) => song['Genre'] == genre).toList();
     Navigator.push(

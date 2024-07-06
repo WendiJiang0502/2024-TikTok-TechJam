@@ -28,8 +28,8 @@ class _SearchResultPageState extends State<SearchResultPage> {
     setState(() {
       results = songsInDB
           .where((element) =>
-              (element.name.toLowerCase().contains(value.toLowerCase()) ||
-                  element.creator.toLowerCase().contains(value.toLowerCase())))
+      (element.name.toLowerCase().contains(value.toLowerCase()) ||
+          element.creator.toLowerCase().contains(value.toLowerCase())))
           .toList();
 
       // results.insert(0, promotedsongs[0]);
@@ -53,7 +53,7 @@ class _SearchResultPageState extends State<SearchResultPage> {
       promotedsongs = [];
       if (results.any((song) => song.by_Independent_Musicians)) {
         List<Video> independentSongs =
-            results.where((song) => song.by_Independent_Musicians).toList();
+        results.where((song) => song.by_Independent_Musicians).toList();
         independentSongs.sort((a, b) {
           double scoreA = a.likes / a.views;
           double scoreB = b.likes / b.views;
@@ -138,7 +138,7 @@ class _SearchResultPageState extends State<SearchResultPage> {
 
   void writeMeJson(String keyword) async {
     List<String> searchHistory =
-        List<String>.from(profileInfo['search_history'] ?? []);
+    List<String>.from(profileInfo['search_history'] ?? []);
     if (searchHistory.contains(keyword)){return;}
     if (searchHistory.length >= 2) {
       searchHistory.removeAt(0); // Remove the oldest search term
@@ -150,20 +150,6 @@ class _SearchResultPageState extends State<SearchResultPage> {
     file.writeAsString(json.encode(profileInfo), flush: true);
     readJson();
   }
-
-  void addPreferredGenre(String genre) async {
-    List<String> preferredGenres =
-    List<String>.from(profileInfo['preferred_genres'] ?? []);
-    if (!preferredGenres.contains(genre)) {
-      preferredGenres.add(genre);
-      profileInfo['preferred_genres'] = preferredGenres;
-
-      final file = await _localFile;
-      file.writeAsString(json.encode(profileInfo), flush: true);
-      readJson();
-    }
-  }
-
 
   var keyword = "";
   @override
@@ -203,16 +189,16 @@ class _SearchResultPageState extends State<SearchResultPage> {
                   ),
                   filled: true,
                   contentPadding:
-                      EdgeInsets.symmetric(vertical: 0, horizontal: 16),
+                  EdgeInsets.symmetric(vertical: 0, horizontal: 16),
                   prefixIcon: Icon(Icons.search, color: Colors.black),
                   suffixIcon: searchController.text.isNotEmpty
                       ? IconButton(
-                          icon: Icon(Icons.cancel, color: Colors.black),
-                          onPressed: () {
-                            searchController.clear();
-                            setState(() {});
-                          },
-                        )
+                    icon: Icon(Icons.cancel, color: Colors.black),
+                    onPressed: () {
+                      searchController.clear();
+                      setState(() {});
+                    },
+                  )
                       : null,
                 ),
                 onChanged: (value) {
@@ -247,93 +233,88 @@ class _SearchResultPageState extends State<SearchResultPage> {
       ),
       body: results.length == 0
           ? Center(
-              child: Text(
-                "Result Not Found",
-                style: TextStyle(
-                    color: Color.fromARGB(255, 79, 79, 79), fontSize: 25),
-              ),
-            )
+        child: Text(
+          "Result Not Found",
+          style: TextStyle(
+              color: Color.fromARGB(255, 79, 79, 79), fontSize: 25),
+        ),
+      )
           : Column(
-              children: [
-                Expanded(
-                  child: ListView.builder(
-                    itemCount: results.length,
-                    itemBuilder: ((context, index) => ListTile(
-                          title: Text(
-                            results[index].name,
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          subtitle: GestureDetector (
-                            onTap: () {
-                              addPreferredGenre(results[index].genre);
-                            },
-                            child: Row(
-                              children: [
-                                Text(
-                                results[index].creator,
-                                style: TextStyle(
-                                  color: const Color.fromARGB(255, 61, 61, 61),
-                                  fontWeight: FontWeight.normal,
-                                ),
-                              ),
-                              SizedBox(width: 3),
-                              Text(
-                                "•",
-                                style: TextStyle(
-                                  color: const Color.fromARGB(255, 61, 61, 61),
-                                  fontWeight: FontWeight.normal,
-                                ),
-                              ),
-                              SizedBox(width: 3),
-                              Text(
-                                results[index].genre,
-                                style: TextStyle(
-                                  color: const Color.fromARGB(255, 61, 61, 61),
-                                  fontWeight: FontWeight.normal,
-                                ),
-                              ),
-                              ],
-                            ),
-                          ),
-                          trailing: (index == 1 || index == 0)
-                              ? Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      ((results[index].likes /
-                                                  results[index].views) *
-                                              10)
-                                          .toStringAsFixed(2),
-                                      style: TextStyle(
-                                          color:
-                                              Color.fromARGB(255, 223, 183, 24),
-                                          fontSize: 15,
-                                          fontStyle: FontStyle.italic),
-                                    ),
-                                    Text(
-                                      "Promoted",
-                                      style: TextStyle(
-                                        color:
-                                            Color.fromARGB(255, 159, 71, 252),
-                                        fontSize: 10,
-                                      ),
-                                      textAlign: TextAlign.left,
-                                    ),
-                                  ],
-                                )
-                              : Column(),
-                          leading: Image.asset(results[index].cover_path),
-                          onTap: () {
-                            openPlayer(results[index]);
-                          },
-                        )),
+        children: [
+          Expanded(
+            child: ListView.builder(
+              itemCount: results.length,
+              itemBuilder: ((context, index) => ListTile(
+                title: Text(
+                  results[index].name,
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
-              ],
+                subtitle: Row(
+                  children: [
+                    Text(
+                      results[index].creator,
+                      style: TextStyle(
+                        color: const Color.fromARGB(255, 61, 61, 61),
+                        fontWeight: FontWeight.normal,
+                      ),
+                    ),
+                    SizedBox(width: 3),
+                    Text(
+                      "•",
+                      style: TextStyle(
+                        color: const Color.fromARGB(255, 61, 61, 61),
+                        fontWeight: FontWeight.normal,
+                      ),
+                    ),
+                    SizedBox(width: 3),
+                    Text(
+                      results[index].genre,
+                      style: TextStyle(
+                        color: const Color.fromARGB(255, 61, 61, 61),
+                        fontWeight: FontWeight.normal,
+                      ),
+                    ),
+                  ],
+                ),
+                trailing: (index == 1 || index == 0)
+                    ? Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      ((results[index].likes /
+                          results[index].views) *
+                          10)
+                          .toStringAsFixed(2),
+                      style: TextStyle(
+                          color:
+                          Color.fromARGB(255, 223, 183, 24),
+                          fontSize: 15,
+                          fontStyle: FontStyle.italic),
+                    ),
+                    Text(
+                      "Promoted",
+                      style: TextStyle(
+                        color:
+                        Color.fromARGB(255, 159, 71, 252),
+                        fontSize: 10,
+                      ),
+                      textAlign: TextAlign.left,
+                    ),
+                  ],
+                )
+                    : Column(),
+                leading: Image.asset(results[index].cover_path),
+                onTap: () {
+                  openPlayer(results[index]);
+                },
+              )),
             ),
+          ),
+        ],
+      ),
     );
   }
 }
