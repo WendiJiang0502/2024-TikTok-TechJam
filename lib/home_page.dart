@@ -9,9 +9,15 @@ import 'package:temp_flutter/widgets/video_display.dart';
 import 'package:temp_flutter/controllers/video_controller.dart';
 import 'package:get/get.dart';
 import 'package:temp_flutter/widgets/danmaku_icon.dart';
+import 'package:ns_danmaku/ns_danmaku.dart';
+import 'package:collection/collection.dart';
+import 'dart:async';
+import 'dart:io';
+import 'dart:convert';
+import 'package:flutter/services.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage({super.key});
+  HomePage({Key? key}) : super(key: key);
 
   final VideoController _videoController = Get.put(VideoController());
 
@@ -21,12 +27,40 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   bool _isMusicSelected = true;
+  late PageController _pageController;
 
   @override
   void initState() {
     widget._videoController.fetchRecommendedVideos();
+    // startPlay("Lullaby of Dreams");
+    _pageController = PageController(initialPage: 0);
+    _pageController.addListener(_onPageChanged);
     super.initState();
   }
+
+  void _onPageChanged() {
+    final int pageIndex = _pageController.page!.round();
+    if (pageIndex != null && pageIndex < widget._videoController.recommendationList.length) {
+      final song = widget._videoController.recommendationList[pageIndex];
+      startPlay(song.name);
+    }
+  }
+
+  late DanmakuController _controller;
+  // var _key = new GlobalKey<ScaffoldState>();
+
+  // final _danmuKey = GlobalKey();
+
+  bool _running = true;
+  bool _hideTop = false;
+  bool _hideBottom = false;
+  bool _hideScroll = false;
+  bool _strokeText = true;
+  double _opacity = 1.0;
+  double _duration = 8;
+  double _lineHeight = 1.2;
+  double _fontSize = 16;
+  FontWeight _fontWeight = FontWeight.normal;
 
 //lib/assets/covers/Broken_Mirrors.png
   buildMusicAlbum(String coverPath) {
@@ -83,16 +117,77 @@ class _HomePageState extends State<HomePage> {
             TextButton(
               child: Text('Send'),
               onPressed: () {
-                // Handle the comment submission
                 String comment = _danmakuController.text;
                 print('Danmaku comment: $comment');
+                _controller.addItems([
+                  DanmakuItem(
+                    comment,
+                    type: DanmakuItemType.scroll,
+                    color: Colors.white,
+                  ),
+                ]);
                 Navigator.of(context).pop();
+                //add rolling comment
+                
               },
             ),
           ],
         );
       },
     );
+  }
+
+  Timer? timer;
+  int sec = 0;
+  Map<int, List<DanmakuItem>> _danmuItems = {};
+  void startPlay(String songName) async {
+    print("execue start play");
+    String data = await rootBundle.loadString('lib/assets/songs.json');
+    List<DanmakuItem> _items = [];
+    var jsonMap = json.decode(data);
+    var song_data = jsonMap[songName];
+    print("song data: \n");
+    print(song_data);
+    for (var item in song_data["rolling_comments"]["comments"]) {
+      var p = item["p"].toString().split(',');
+      var mode = int.parse(p[1]);
+      DanmakuItemType type = DanmakuItemType.scroll;
+      if (mode == 5) {
+        type = DanmakuItemType.top;
+      } else if (mode == 4) {
+        type = DanmakuItemType.bottom;
+      }
+      var color = int.parse(p[2]).toRadixString(16).padLeft(6, "0");
+      var temp_time = double.parse(p[0])/2;
+
+      _items.add(DanmakuItem(
+        item['m'],
+        time: temp_time.toInt(),
+        color: Color(int.parse("FF" + color, radix: 16)),
+        type: type,
+      ));
+    }
+    print("danmaku Items: \n");
+    print(_items);
+
+
+    _danmuItems = groupBy(_items, (DanmakuItem obj) => obj.time);
+    sec = 0;
+    if (timer == null) {
+      timer = Timer.periodic(Duration(seconds: 1), (timer) {
+        if (!_controller.running) return;
+        if (_danmuItems.containsKey(sec))
+          _controller.addItems(_danmuItems[sec]!);
+        sec++;
+      });
+    }
+    
+  }
+
+  @override
+  void dispose() {
+    timer?.cancel();
+    super.dispose();
   }
 
   @override
@@ -155,7 +250,8 @@ class _HomePageState extends State<HomePage> {
       body: Obx(() {
         return PageView.builder(
             itemCount: widget._videoController.recommendationList.length,
-            controller: PageController(initialPage: 0, viewportFraction: 1),
+            // controller: PageController(initialPage: 0, viewportFraction: 1),
+            controller: _pageController,
             scrollDirection: Axis.vertical,
             itemBuilder: (context, index) {
               final song = widget._videoController.recommendationList[index];
@@ -335,11 +431,158 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                     ],
-                  )
+                  ),
+                  DanmakuView(
+                    key: GlobalKey(),
+                    createdController: (DanmakuController e) {
+                      _controller = e;
+                    },
+                    option: DanmakuOption(
+                      opacity: _opacity,
+                      fontSize: _fontSize,
+                      duration: _duration,
+                      strokeText: _strokeText,
+                      fontWeight: _fontWeight,
+                    ),
+                    statusChanged: (e) {
+                      setState(() {
+                        _running = e;
+                      });
+                    },
+                  ),
                 ],
               );
             });
       }),
+      // endDrawer: Drawer(
+      //   child: SafeArea(
+      //     child: ListView(
+      //       padding: EdgeInsets.all(8),
+      //       children: [
+      //         Text("Opacity : $_opacity"),
+      //         Slider(
+      //           value: _opacity,
+      //           max: 1.0,
+      //           min: 0.1,
+      //           divisions: 9,
+      //           onChanged: (e) {
+      //             setState(() {
+      //               _opacity = e;
+      //             });
+      //             _controller
+      //                 .updateOption(_controller.option.copyWith(opacity: e));
+      //           },
+      //         ),
+      //         Text("FontSize : $_fontSize"),
+      //         Slider(
+      //           value: _fontSize,
+      //           min: 8,
+      //           max: 36,
+      //           divisions: 14,
+      //           onChanged: (e) {
+      //             setState(() {
+      //               _fontSize = e;
+      //             });
+      //             _controller
+      //                 .updateOption(_controller.option.copyWith(fontSize: e));
+      //           },
+      //         ),
+      //         Text("FontWidght : $_fontWeight"),
+      //         Slider(
+      //           value: _fontWeight.index.toDouble(),
+      //           min: 0,
+      //           max: 8,
+      //           divisions: 8,
+      //           onChanged: (e) {
+      //             setState(() {
+      //               _fontWeight = FontWeight.values[e.toInt()];
+      //             });
+      //             _controller.updateOption(
+      //                 _controller.option.copyWith(fontWeight: _fontWeight));
+      //           },
+      //         ),
+      //         Text("Duration : $_duration"),
+      //         Slider(
+      //           value: _duration,
+      //           min: 4,
+      //           max: 20,
+      //           divisions: 16,
+      //           onChanged: (e) {
+      //             setState(() {
+      //               _duration = e;
+      //             });
+      //             _controller
+      //                 .updateOption(_controller.option.copyWith(duration: e));
+      //           },
+      //         ),
+      //         Text("LineHeight : $_lineHeight"),
+      //         Slider(
+      //           value: _lineHeight,
+      //           min: 0.5,
+      //           max: 2.0,
+      //           divisions: 15,
+      //           onChanged: (e) {
+      //             setState(() {
+      //               _lineHeight = e;
+      //             });
+      //             _controller
+      //                 .updateOption(_controller.option.copyWith(lineHeight: e));
+      //           },
+      //         ),
+      //         SwitchListTile(
+      //           title: Text("Stroke Text"),
+      //           value: _strokeText,
+      //           onChanged: (e) {
+      //             setState(() {
+      //               _strokeText = e;
+      //             });
+      //             _controller
+      //                 .updateOption(_controller.option.copyWith(strokeText: e));
+      //           },
+      //         ),
+      //         SwitchListTile(
+      //           title: Text("Hide Top"),
+      //           value: _hideTop,
+      //           onChanged: (e) {
+      //             setState(() {
+      //               _hideTop = e;
+      //             });
+      //             _controller
+      //                 .updateOption(_controller.option.copyWith(hideTop: e));
+      //           },
+      //         ),
+      //         SwitchListTile(
+      //           title: Text("Hide Bottom"),
+      //           value: _hideBottom,
+      //           onChanged: (e) {
+      //             setState(() {
+      //               _hideBottom = e;
+      //             });
+      //             _controller
+      //                 .updateOption(_controller.option.copyWith(hideBottom: e));
+      //           },
+      //         ),
+      //         SwitchListTile(
+      //           title: Text("Hide Scroll"),
+      //           value: _hideScroll,
+      //           onChanged: (e) {
+      //             setState(() {
+      //               _hideScroll = e;
+      //             });
+      //             _controller
+      //                 .updateOption(_controller.option.copyWith(hideScroll: e));
+      //           },
+      //         ),
+      //         ListTile(
+      //           title: Text("Clear"),
+      //           onTap: () {
+      //             _controller.clear();
+      //           },
+      //         )
+      //       ],
+      //     ),
+      //   ),
+      // ),
     );
   }
 }
