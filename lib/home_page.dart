@@ -62,6 +62,39 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+  void showDanmakuInputDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        TextEditingController _danmakuController = TextEditingController();
+        return AlertDialog(
+          title: Text('Enter your comment'),
+          content: TextField(
+            controller: _danmakuController,
+            decoration: InputDecoration(hintText: "Type your comment here"),
+          ),
+          actions: <Widget>[
+            TextButton(
+              child: Text('Cancel'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            TextButton(
+              child: Text('Send'),
+              onPressed: () {
+                // Handle the comment submission
+                String comment = _danmakuController.text;
+                print('Danmaku comment: $comment');
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -203,7 +236,7 @@ class _HomePageState extends State<HomePage> {
                             ),
                             Container(
                               width: 95,
-                              margin: EdgeInsets.only(top: size.height / 2.5),
+                              margin: EdgeInsets.only(top: size.height / 3),
                               child: Column(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
@@ -271,6 +304,32 @@ class _HomePageState extends State<HomePage> {
                                           fontSize: 18,
                                           color: Colors.white,
                                         ),
+                                      )
+                                    ],
+                                  ),
+                                  Column(
+                                    children: [
+                                      InkWell(
+                                        onTap: () {
+                                          showDanmakuInputDialog(context);
+                                        },
+                                        child: Icon(
+                                          Icons.short_text_rounded,
+                                          size: 35,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                      const SizedBox(
+                                        height: 2,
+                                      ),
+                                      Text(
+                                        "",
+                                        style: const TextStyle(
+                                          fontSize: 15,
+                                          color: Colors.white,
+                                          
+                                        ),
+                                        textAlign: TextAlign.center,
                                       )
                                     ],
                                   ),
