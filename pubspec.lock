@@ -184,6 +184,15 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.11.0"
+  ns_danmaku:
+    dependency: "direct main"
+    description:
+      path: "."
+      ref: master
+      resolved-ref: "53bc3854d4e2e6f1793e7cb419ecbbe5c7c6048b"
+      url: "https://github.com/xiaoyaocz/flutter_ns_danmaku.git"
+    source: git
+    version: "0.0.9"
   path:
     dependency: transitive
     description:
