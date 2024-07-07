@@ -8,6 +8,7 @@ import 'package:video_player/video_player.dart';
 import 'package:temp_flutter/widgets/video_display.dart';
 import 'package:temp_flutter/controllers/video_controller.dart';
 import 'package:get/get.dart';
+import 'package:temp_flutter/widgets/danmaku_icon.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({super.key});
@@ -25,7 +26,6 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     widget._videoController.fetchRecommendedVideos();
     super.initState();
-    
   }
 
 //lib/assets/covers/Broken_Mirrors.png
@@ -118,7 +118,7 @@ class _HomePageState extends State<HomePage> {
                           : TextDecoration.none,
                       decorationColor: Colors.white,
                       decorationThickness: 2,
-                      // decorationStyle: 
+                      // decorationStyle:
                     ),
               ),
               SizedBox(width: 2),
@@ -313,11 +313,7 @@ class _HomePageState extends State<HomePage> {
                                         onTap: () {
                                           showDanmakuInputDialog(context);
                                         },
-                                        child: Icon(
-                                          Icons.short_text_rounded,
-                                          size: 35,
-                                          color: Colors.white,
-                                        ),
+                                        child: RollingCommentIcon(),
                                       ),
                                       const SizedBox(
                                         height: 2,
@@ -327,7 +323,6 @@ class _HomePageState extends State<HomePage> {
                                         style: const TextStyle(
                                           fontSize: 15,
                                           color: Colors.white,
-                                          
                                         ),
                                         textAlign: TextAlign.center,
                                       )
