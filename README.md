@@ -1,4 +1,4 @@
-# DevPost Description 
+# TikTune - 2024 TikTok TechJam
 ## ✍️ Team Biography
 👩🏻‍💻 Jingwen Huang: Year 1 Master's student in CS at USC. Women in STEM. In charge of the backend, ML, frontend, UI, design.
 
