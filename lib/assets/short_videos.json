@@ -1,0 +1,13 @@
+{
+  "TikTok Hackathon": {
+    "Genre": "Pop",
+    "Creator": "Bondi Wennie",
+    "Independent Musicians": true,
+    "Views": 1500,
+    "Likes": 300,
+    "Comments": 150,
+    "path": "lib/assets/1min_edition.mp4",
+    "album cover": "lib/assets/profile_pic.jpg",
+    "public_time": "2024-07-01"
+  }
+}
