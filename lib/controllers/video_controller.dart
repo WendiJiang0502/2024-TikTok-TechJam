@@ -7,6 +7,10 @@ import 'package:http/http.dart' as http;
 class VideoController extends GetxController {
   final Rx<List<Video>> _videoList = Rx<List<Video>>([]);
   final Rx<List<Video>> _recommendationList = Rx<List<Video>>([]);
+  final Rx<List<Video>> _shortVideoList = Rx<List<Video>>([]);
+
+  List<Video> get shortVideoList => _shortVideoList.value;
+
 
   List<Video> get videoList => _videoList.value;
 
@@ -17,6 +21,7 @@ class VideoController extends GetxController {
     super.onInit();
     fetchRecommendedVideos();
     loadVideos();
+    loadShortVideos();
   }
 
   void loadVideos() async {
@@ -39,6 +44,28 @@ class VideoController extends GetxController {
     });
     _videoList.value = retVal;
   }
+
+  void loadShortVideos() async {
+    final String jsonString = await rootBundle.loadString('lib/assets/short_videos.json');
+    final Map<String, dynamic> jsonMap = json.decode(jsonString);
+    List<Video> retVal = [];
+    jsonMap.forEach((name, data) {
+      retVal.add(Video(
+          name: name,
+          genre: data["Genre"],
+          creator: data["Creator"],
+          by_Independent_Musicians: data["Independent Musicians"],
+          views: data["Views"],
+          likes: data["Likes"],
+          commentCount: data["Comments"],
+          song_path: data["path"],
+          cover_path: data["album cover"],
+          public_time: data["public_time"]
+      ));
+    });
+    _shortVideoList.value = retVal;
+  }
+
 
   void fetchRecommendedVideos() async {
     try {
