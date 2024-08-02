@@ -43,7 +43,8 @@ class VideoController extends GetxController {
   void fetchRecommendedVideos() async {
     try {
       final response = await http.get(
-          Uri.parse('http://192.168.1.111:5000/recommendations')
+          // Uri.parse('http://192.168.1.111:5000/recommendations')
+          Uri.parse('http://127.0.0.1:5000/recommendations')
       );
 
       if (response.statusCode == 200) {
