@@ -1,15 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:temp_flutter/constants.dart';
+import 'package:temp_flutter/music_select_page.dart';
+import 'dart:io';
 
 class AddVideo extends StatelessWidget {
-  const AddVideo({super.key});
-  showOptions(BuildContext context) {
-    return showDialog(
+  final ImagePicker _picker = ImagePicker();
+
+  AddVideo({super.key});
+
+  void showOptions(BuildContext context) {
+    showDialog(
       context: context,
       builder: (context) => SimpleDialog(
+        title: const Text('Select Video Source'),
         children: [
           SimpleDialogOption(
-            onPressed: () {},
+            onPressed: () => pickVideo(context, ImageSource.gallery),
             child: const Row(
               children: [
                 Icon(Icons.image),
@@ -24,7 +31,7 @@ class AddVideo extends StatelessWidget {
             ),
           ),
           SimpleDialogOption(
-            onPressed: () {},
+            onPressed: () => pickVideo(context, ImageSource.camera),
             child: const Row(
               children: [
                 Icon(Icons.camera_alt),
@@ -56,6 +63,32 @@ class AddVideo extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  void pickVideo(BuildContext context, ImageSource source) async {
+    final XFile? video = await _picker.pickVideo(source: source);
+    if (video != null) {
+      Navigator.of(context).pop();  // Close the dialog after selection
+      final musicPath = await Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => MusicSelectionScreen(videoPath: video.path),
+        ),
+      );
+      if (musicPath != null) {
+        // Now you have both the video path and the selected music path
+        print("Video path: ${video.path}, Music path: $musicPath");
+        // Proceed to overlay music on video here
+      }
+    }
+  }
+
+
+  void showMusicSelection(BuildContext context, String videoPath) {
+    // Navigate to your music selection screen or handle it within a dialog
+    // This function needs to be defined according to how you plan to implement the feature
+    print("Video path: $videoPath");
+    // Example: Navigator.push(context, MaterialPageRoute(builder: (_) => MusicSelectionScreen(videoPath: videoPath)));
   }
 
   @override

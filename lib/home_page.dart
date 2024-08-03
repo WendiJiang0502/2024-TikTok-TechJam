@@ -1,3 +1,5 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:temp_flutter/controllers/video_controller.dart';
@@ -28,6 +30,9 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   bool _isMusicSelected = true;
   late PageController _pageController;
+
+  // Add a state variable to track the current tab
+  String _selectedTab = 'Music';
 
   @override
   void initState() {
@@ -128,7 +133,7 @@ class _HomePageState extends State<HomePage> {
                 ]);
                 Navigator.of(context).pop();
                 //add rolling comment
-                
+
               },
             ),
           ],
@@ -181,7 +186,7 @@ class _HomePageState extends State<HomePage> {
         sec++;
       });
     }
-    
+
   }
 
   @override
@@ -196,72 +201,87 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-          elevation: 0,
-          backgroundColor: Colors.black,
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              SizedBox(width: 2),
-              Text(
+        elevation: 0,
+        backgroundColor: Colors.black,
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            TextButton(
+              onPressed: () {
+                setState(() {
+                  _selectedTab = 'Music';
+                });
+              },
+              child: Text(
                 "Music",
-                style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                      fontSize: _isMusicSelected ? 19 : 18,
-                      color: _isMusicSelected ? Colors.white : Colors.grey,
-                      decoration: _isMusicSelected
-                          ? TextDecoration.underline
-                          : TextDecoration.none,
-                      decorationColor: Colors.white,
-                      decorationThickness: 2,
-                      // decorationStyle:
-                    ),
-              ),
-              SizedBox(width: 2),
-              Text(
-                "For you",
-                style: Theme.of(context)
-                    .textTheme
-                    .bodyMedium!
-                    .copyWith(fontSize: 18, color: Colors.grey),
-              ),
-              SizedBox(width: 2),
-              Text(
-                "Following",
-                style: Theme.of(context)
-                    .textTheme
-                    .bodyMedium!
-                    .copyWith(fontSize: 18, color: Colors.grey),
-              ),
-              IconButton(
-                icon: Icon(
-                  Icons.search,
-                  color: Colors.grey,
+                style: TextStyle(
+                  fontSize: _selectedTab == 'Music' ? 19 : 18,
+                  color: _selectedTab == 'Music' ? Colors.white : Colors.grey,
+                  decoration: _selectedTab == 'Music' ? TextDecoration.underline : TextDecoration.none,
                 ),
-                onPressed: () {
-                  // Navigate to the search page when the icon is tapped
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => SearchPage()),
-                  );
-                },
               ),
-            ],
-          )),
+            ),
+            TextButton(
+              onPressed: () {
+                setState(() {
+                  _selectedTab = 'For you';
+                });
+              },
+              child: Text(
+                "For you",
+                style: TextStyle(
+                  fontSize: _selectedTab == 'For you' ? 19 : 18,
+                  color: _selectedTab == 'For you' ? Colors.white : Colors.grey,
+                  decoration: _selectedTab == 'For you' ? TextDecoration.underline : TextDecoration.none,
+                ),
+              ),
+            ),
+            TextButton(
+              onPressed: () {
+                setState(() {
+                  _selectedTab = 'Following';
+                });
+              },
+              child: Text(
+                "Following",
+                style: TextStyle(
+                  fontSize: _selectedTab == 'Following' ? 19 : 18,
+                  color: _selectedTab == 'Following' ? Colors.white : Colors.grey,
+                  decoration: _selectedTab == 'Following' ? TextDecoration.underline : TextDecoration.none,
+                ),
+              ),
+            ),
+            IconButton(
+              icon: Icon(
+                Icons.search,
+                color: Colors.grey,
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SearchPage()),
+                );
+              },
+            ),
+          ],
+        ),
+      ),
       body: Obx(() {
         return PageView.builder(
-            itemCount: widget._videoController.recommendationList.length,
-            // controller: PageController(initialPage: 0, viewportFraction: 1),
-            controller: _pageController,
-            scrollDirection: Axis.vertical,
-            itemBuilder: (context, index) {
-              final song = widget._videoController.recommendationList[index];
+          itemCount: _selectedTab == 'For you'? widget._videoController.shortVideoList.length : widget._videoController.recommendationList.length,
+          // controller: PageController(initialPage: 0, viewportFraction: 1),
+          controller: _pageController,
+          scrollDirection: Axis.vertical,
+          itemBuilder: (context, index) {
+            final song = _selectedTab == 'For you'?widget._videoController.shortVideoList[index] :widget._videoController.recommendationList[index];
               return Stack(
                 alignment: Alignment.center,
                 children: [
                   VideoDisplay(
                     video_path: song.song_path,
                   ),
-                  CircleAnimation(
+                   if (_selectedTab == 'Music') CircleAnimation(
                     child: buildMusicAlbum(song.cover_path),
                   ),
                   Column(
@@ -283,7 +303,7 @@ class _HomePageState extends State<HomePage> {
                                   mainAxisSize: MainAxisSize.min,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                  MainAxisAlignment.spaceBetween,
                                   children: [
                                     Row(
                                       children: [
@@ -335,7 +355,7 @@ class _HomePageState extends State<HomePage> {
                               margin: EdgeInsets.only(top: size.height / 3),
                               child: Column(
                                 mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                MainAxisAlignment.spaceBetween,
                                 children: [
                                   Column(
                                     children: [
@@ -452,7 +472,8 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ],
               );
-            });
+            }
+        );
       }),
       // endDrawer: Drawer(
       //   child: SafeArea(
@@ -586,3 +607,4 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
+

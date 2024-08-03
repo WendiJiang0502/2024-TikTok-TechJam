@@ -6,7 +6,7 @@ import 'package:temp_flutter/home_page.dart';
 
 List pages = [
   HomePage(),
-  const AddVideo(),
+  AddVideo(),
   ProfilePage(),
 ];
 
