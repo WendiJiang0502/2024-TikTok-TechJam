@@ -12,12 +12,15 @@ client = OpenAI()
 def extract_keywords(path):
     video = cv2.VideoCapture(path)
     base64Frames = []
+    frame_count = 0
     while video.isOpened():
         success, frame = video.read()
         if not success:
             break
-        _, buffer = cv2.imencode(".jpg", frame)
-        base64Frames.append(base64.b64encode(buffer).decode("utf-8"))
+        if frame_count % 10 == 0:
+            _, buffer = cv2.imencode(".jpg", frame)
+            base64Frames.append(base64.b64encode(buffer).decode("utf-8"))
+        frame_count += 1
 
     video.release()
     print(len(base64Frames), "frames read.")
@@ -40,8 +43,9 @@ def extract_keywords(path):
 
     result = client.chat.completions.create(**params)
     # return result.choices[0].message.content.split()
-    print(result.choices[0].message.content.split())
-    return result.choices[0].message.content.split()
+    keywords_with_numbers = result.choices[0].message.content.split()
+    keywords = [keywords_with_numbers[i] for i in range(len(keywords_with_numbers)) if i % 2 != 0]
+    return keywords
 
 def bgm_recommendation():
     return []

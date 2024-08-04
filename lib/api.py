@@ -32,7 +32,7 @@ def get_recommendations():
 def bgm_recommendations():
     video_path = request.args.get('video_path')
     keywords = extract_keywords(video_path)
-    return jsonify({'keywords': keywords})
+    return jsonify(keywords)
 
 
 if __name__ == "__main__":
