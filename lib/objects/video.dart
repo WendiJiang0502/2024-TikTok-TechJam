@@ -11,6 +11,7 @@ class Video{
   String song_path;
   String cover_path;
   String public_time;
+  String bgm_path;
 
   Video({
     required this.name,
@@ -22,7 +23,8 @@ class Video{
     required this.commentCount,
     required this.song_path,
     required this.cover_path,
-    required this.public_time
+    required this.public_time,
+    this.bgm_path = '',
   });
 
   Map<String, dynamic> toJson() => {
