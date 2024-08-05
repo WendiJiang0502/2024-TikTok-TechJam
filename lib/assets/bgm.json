@@ -10,16 +10,16 @@
     "album cover": "lib/assets/covers/Unveiled_Serenade.png",
     "public_time": "2024-06-15",
     "keyword": [
-      "jazz",
-      "serenade",
-      "romantic",
-      "smooth",
-      "melodic",
-      "romantic",
-      "relaxation",
-      "evening",
-      "candlelight",
-      "chill"
+      "Jazz",
+      "Serenade",
+      "Romantic",
+      "Smooth",
+      "Melodic",
+      "Romantic",
+      "Relaxation",
+      "Evening",
+      "Candlelight",
+      "Chill"
     ]
   },
   "Moonlit Serenade": {
@@ -33,16 +33,16 @@
     "album cover": "lib/assets/covers/Moonlit_Serenade.png",
     "public_time": "2024-06-20",
     "keyword": [
-      "jazz",
-      "night",
-      "serenade",
-      "calm",
-      "romance",
-      "late-night",
-      "romantic",
-      "relaxation",
-      "study",
-      "night"
+      "Jazz",
+      "Night",
+      "Serenade",
+      "Calm",
+      "Romance",
+      "Late-night",
+      "Romantic",
+      "Relaxation",
+      "Study",
+      "Night"
     ]
   },
   "Love in the Air": {
@@ -56,16 +56,16 @@
     "album cover": "lib/assets/covers/Love_in_the_Air.png",
     "public_time": "2024-05-25",
     "keyword": [
-      "pop",
-      "love",
-      "romantic",
-      "uplifting",
-      "joyful",
-      "road",
-      "happy",
-      "date",
-      "party",
-      "uplifting"
+      "Pop",
+      "Love",
+      "Romantic",
+      "Uplifting",
+      "Joyful",
+      "Road",
+      "Happy",
+      "Date",
+      "Party",
+      "Uplifting"
     ]
   },
   "Dancing in the Moonlight": {
@@ -79,16 +79,16 @@
     "album cover": "lib/assets/covers/Dancing_in_the_Moonlight.png",
     "public_time": "2024-06-05",
     "keyword": [
-      "pop",
-      "dance",
-      "night",
-      "happy",
-      "energetic",
-      "party",
-      "dancing",
-      "celebration",
-      "night",
-      "energetic"
+      "Pop",
+      "Dance",
+      "Night",
+      "Happy",
+      "Energetic",
+      "Party",
+      "Dancing",
+      "Celebration",
+      "Night",
+      "Energetic"
     ]
   },
   "Chasing Shadows": {
@@ -102,16 +102,16 @@
     "album cover": "lib/assets/covers/Chasing_Shadows.png",
     "public_time": "2024-06-10",
     "keyword": [
-      "rock",
-      "dark",
-      "chase",
-      "intense",
-      "mysterious",
-      "intense",
-      "driving",
-      "gaming",
-      "adventure",
-      "contemplation"
+      "Rock",
+      "Dark",
+      "Chase",
+      "Intense",
+      "Mysterious",
+      "Intense",
+      "Driving",
+      "Gaming",
+      "Adventure",
+      "Contemplation"
     ]
   },
   "Broken Mirrors": {
@@ -125,16 +125,16 @@
     "album cover": "lib/assets/covers/Broken_Mirrors.png",
     "public_time": "2024-05-20",
     "keyword": [
-      "rock",
-      "introspection",
-      "fragmented",
-      "emotional",
-      "deep",
-      "introspection",
-      "relaxation",
-      "artistic",
-      "late-night",
-      "calm"
+      "Rock",
+      "Introspection",
+      "Fragmented",
+      "Emotional",
+      "Deep",
+      "Introspection",
+      "Relaxation",
+      "Artistic",
+      "Late-night",
+      "Calm"
     ]
   },
   "City Lights": {
@@ -148,16 +148,16 @@
     "album cover": "lib/assets/covers/City_Lights.png",
     "public_time": "2024-06-18",
     "keyword": [
-      "hip hop",
-      "urban",
-      "nightlife",
-      "rhythmic",
-      "street",
-      "urban",
-      "night",
-      "driving",
-      "party",
-      "street"
+      "Hip Hop",
+      "Urban",
+      "Nighttime",
+      "Rhythmic",
+      "Street",
+      "Urban",
+      "Night",
+      "Driving",
+      "Party",
+      "Lights"
     ]
   },
   "Walkin' These Streets": {
@@ -171,16 +171,16 @@
     "album cover": "lib/assets/covers/Walkin_These_Streets.png",
     "public_time": "2024-06-22",
     "keyword": [
-      "hip hop",
-      "journey",
-      "urban",
-      "reflective",
-      "gritty",
-      "walking",
-      "reflective",
-      "driving",
-      "urban",
-      "chill"
+      "Hip Hop",
+      "Journey",
+      "Urban",
+      "Reflective",
+      "Gritty",
+      "Walking",
+      "Reflective",
+      "Driving",
+      "Urban",
+      "Chill"
     ]
   },
   "Forever in Time": {
@@ -194,16 +194,16 @@
     "album cover": "lib/assets/covers/Forever_in_Time.png",
     "public_time": "2024-06-08",
     "keyword": [
-      "classical",
-      "timeless",
-      "beautiful",
-      "orchestral",
-      "epic",
-      "study",
-      "concentration",
-      "peaceful",
-      "background",
-      "relaxation"
+      "Classical",
+      "Timeless",
+      "Beautiful",
+      "Orchestral",
+      "Epic",
+      "Study",
+      "Concentration",
+      "Peaceful",
+      "Background",
+      "Relaxation"
     ]
   },
   "Peaceful Journey": {
@@ -217,16 +217,16 @@
     "album cover": "lib/assets/covers/Peaceful_Journey.png",
     "public_time": "2024-06-14",
     "keyword": [
-      "classical",
-      "calm",
-      "relaxing",
-      "journey",
-      "soothing",
-      "meditation",
-      "relaxation",
-      "study",
-      "yoga",
-      "nature"
+      "Classical",
+      "Calm",
+      "Relaxing",
+      "Journey",
+      "Soothing",
+      "Meditation",
+      "Relaxation",
+      "Study",
+      "Yoga",
+      "Nature"
     ]
   },
   "Timeless Moments": {
@@ -240,16 +240,16 @@
     "album cover": "lib/assets/covers/Timeless_Moments.png",
     "public_time": "2024-05-30",
     "keyword": [
-      "classical",
-      "timeless",
-      "beautiful",
-      "orchestral",
-      "nostalgia",
-      "study",
-      "reflection",
-      "relaxation",
-      "artistic",
-      "background"
+      "Classical",
+      "Timeless",
+      "Beautiful",
+      "Orchestral",
+      "Nostalgia",
+      "Study",
+      "Reflection",
+      "Relaxation",
+      "Artistic",
+      "Background"
     ]
   },
   "Dreamscape": {
@@ -263,16 +263,16 @@
     "album cover": "lib/assets/covers/Dreamscape.png",
     "public_time": "2024-06-25",
     "keyword": [
-      "classical",
-      "dreamy",
-      "ethereal",
-      "calm",
-      "relaxing",
-      "meditation",
-      "sleep",
-      "relaxation",
-      "daydreaming",
-      "creative"
+      "Classical",
+      "Dreamy",
+      "Ethereal",
+      "Calm",
+      "Relaxing",
+      "Meditation",
+      "Sleep",
+      "Relaxation",
+      "Daydreaming",
+      "Creative"
     ]
   },
   "Grit and Grace": {
@@ -286,16 +286,16 @@
     "album cover": "lib/assets/covers/Grit_and_Grace.png",
     "public_time": "2024-06-11",
     "keyword": [
-      "country",
-      "grit",
-      "strength",
-      "graceful",
-      "inspirational",
-      "road",
-      "working",
-      "country",
-      "adventure",
-      "motivation"
+      "Country",
+      "Grit",
+      "Strength",
+      "Graceful",
+      "Inspirational",
+      "Road",
+      "Working",
+      "Country",
+      "Adventure",
+      "Motivation"
     ]
   },
   "Underneath the Old Oak Tree": {
@@ -309,16 +309,16 @@
     "album cover": "lib/assets/covers/Underneath_the_Old_Oak_Tree.png",
     "public_time": "2024-05-27",
     "keyword": [
-      "country",
-      "nature",
-      "nostalgia",
-      "calm",
-      "roots",
-      "picnics",
-      "relaxation",
-      "nostalgia",
-      "nature",
-      "family"
+      "Country",
+      "Nature",
+      "Nostalgia",
+      "Calm",
+      "Roots",
+      "Picnics",
+      "Relaxation",
+      "Nostalgia",
+      "Nature",
+      "Family"
     ]
   },
   "Electric Love": {
@@ -332,16 +332,16 @@
     "album cover": "lib/assets/covers/Electric_Love.png",
     "public_time": "2024-06-19",
     "keyword": [
-      "electronic",
-      "love",
-      "energetic",
-      "vibrant",
-      "modern",
-      "party",
-      "night",
-      "dancing",
-      "club",
-      "energetic"
+      "Electronic",
+      "Love",
+      "Energetic",
+      "Vibrant",
+      "Modern",
+      "Party",
+      "Night",
+      "Dancing",
+      "Club",
+      "Energetic"
     ]
   },
   "Neon Lights": {
@@ -355,16 +355,16 @@
     "album cover": "lib/assets/covers/Neon_Lights.png",
     "public_time": "2024-05-22",
     "keyword": [
-      "electronic",
-      "bright",
-      "vibrant",
-      "nightlife",
-      "futuristic",
-      "nightlife",
-      "party",
-      "dancing",
-      "urban",
-      "energetic"
+      "Electronic",
+      "Bright",
+      "Vibrant",
+      "Nightlife",
+      "Futuristic",
+      "Nightlife",
+      "Party",
+      "Dancing",
+      "Urban",
+      "Energetic"
     ]
   },
   "Sunset Dreams": {
@@ -378,16 +378,16 @@
     "album cover": "lib/assets/covers/Sunset_Dreams.png",
     "public_time": "2024-06-06",
     "keyword": [
-      "relaxing",
-      "sunset",
-      "dreamy",
-      "calm",
-      "peaceful",
-      "sunset",
-      "relaxation",
-      "beach",
-      "evening",
-      "travel"
+      "Relaxing",
+      "Sunset",
+      "Dreamy",
+      "Calm",
+      "Peaceful",
+      "Sunset",
+      "Relaxation",
+      "Beach",
+      "Evening",
+      "Travel"
     ]
   },
   "Lullaby of Dreams": {
@@ -401,16 +401,16 @@
     "album cover": "lib/assets/covers/Lullaby_of_Dreams.png",
     "public_time": "2024-06-24",
     "keyword": [
-      "relaxing",
-      "lullaby",
-      "dreamy",
-      "calm",
-      "soothing",
-      "sleep",
-      "relaxation",
-      "bedtime",
-      "calm",
-      "meditation"
+      "Relaxing",
+      "Lullaby",
+      "Dreamy",
+      "Calm",
+      "Soothing",
+      "Sleep",
+      "Relaxation",
+      "Bedtime",
+      "Calm",
+      "Meditation"
     ]
   },
   "Moonlight on the Terrace": {
@@ -424,16 +424,16 @@
     "album cover": "lib/assets/covers/Moonlight_on_the_Terrace.png",
     "public_time": "2024-06-01",
     "keyword": [
-      "jazz",
-      "moonlight",
-      "romantic",
-      "smooth",
-      "relaxing",
-      "romantic",
-      "evening",
-      "late-night",
-      "date",
-      "chill"
+      "Jazz",
+      "Moonlight",
+      "Romantic",
+      "Smooth",
+      "Relaxing",
+      "Romantic",
+      "Nighttime",
+      "Late-night",
+      "Date",
+      "Chill"
     ]
   },
   "Moonlit Rendezvous": {
@@ -447,16 +447,16 @@
     "album cover": "lib/assets/covers/Moonlit_Rendezvous.png",
     "public_time": "2024-07-01",
     "keyword": [
-      "jazz",
-      "romance",
-      "night",
-      "smooth",
-      "serenade",
-      "romantic",
-      "late-night",
-      "relaxation",
-      "intimate",
-      "date"
+      "Jazz",
+      "Romance",
+      "Night",
+      "Smooth",
+      "Serenade",
+      "Romantic",
+      "Late-night",
+      "Relaxation",
+      "Intimate",
+      "Date"
     ]
   },
   "Heart on Fire": {
@@ -470,16 +470,16 @@
     "album cover": "lib/assets/covers/Heart_on_Fire.png",
     "public_time": "2024-07-02",
     "keyword": [
-      "pop",
-      "passion",
-      "intense",
-      "energetic",
-      "love",
-      "workout",
-      "party",
-      "celebration",
-      "energetic",
-      "motivational"
+      "Pop",
+      "Passion",
+      "Intense",
+      "Energetic",
+      "Love",
+      "Workout",
+      "Party",
+      "Celebration",
+      "Energetic",
+      "Motivational"
     ]
   },
   "Shining Star": {
@@ -493,16 +493,16 @@
     "album cover": "lib/assets/covers/Shining_Star.png",
     "public_time": "2024-06-15",
     "keyword": [
-      "pop",
-      "bright",
-      "inspirational",
-      "uplifting",
-      "joyful",
-      "celebration",
-      "happy",
-      "party",
-      "dancing",
-      "uplifting"
+      "Pop",
+      "Bright",
+      "Inspirational",
+      "Uplifting",
+      "Joyful",
+      "Celebration",
+      "Happy",
+      "Party",
+      "Dancing",
+      "Bridge"
     ]
   },
   "Walking Through Fire": {
@@ -516,16 +516,16 @@
     "album cover": "lib/assets/covers/Walking_Through_Fire.png",
     "public_time": "2024-07-03",
     "keyword": [
-      "rock",
-      "intense",
-      "resilience",
-      "strong",
-      "powerful",
-      "intense",
-      "motivation",
-      "driving",
-      "adventure",
-      "powerful"
+      "Rock",
+      "Intense",
+      "Resilience",
+      "Strong",
+      "Powerful",
+      "Intense",
+      "Motivation",
+      "Driving",
+      "Adventure",
+      "Powerful"
     ]
   },
   "Disconnected Youth": {
@@ -539,16 +539,16 @@
     "album cover": "lib/assets/covers/Disconnected_Youth.png",
     "public_time": "2023-12-01",
     "keyword": [
-      "rock",
-      "youth",
-      "rebellion",
-      "disconnection",
-      "intense",
-      "rebellion",
-      "skateboarding",
-      "youthful",
-      "introspection",
-      "late-night"
+      "Rock",
+      "Youth",
+      "Rebellion",
+      "Disconnection",
+      "Intense",
+      "Rebellion",
+      "Skateboarding",
+      "Youthful",
+      "Introspection",
+      "Late-night"
     ]
   },
   "Moonlit Stroll": {
@@ -562,16 +562,16 @@
     "album cover": "lib/assets/covers/Moonlit_Stroll.png",
     "public_time": "2024-06-12",
     "keyword": [
-      "jazz",
-      "night",
-      "romantic",
-      "smooth",
-      "serenade",
-      "night",
-      "relaxation",
-      "romantic",
-      "late-night",
-      "chill"
+      "Jazz",
+      "Nighttime",
+      "Romantic",
+      "Smooth",
+      "Serenade",
+      "Night",
+      "Relaxation",
+      "Romantic",
+      "Late-night",
+      "Chill"
     ]
   },
   "Backroads and Blue Jeans": {
@@ -585,16 +585,16 @@
     "album cover": "lib/assets/covers/Backroads_and_Blue_Jeans.png",
     "public_time": "2024-05-18",
     "keyword": [
-      "country",
-      "nostalgia",
-      "simple life",
-      "rural",
-      "americana",
-      "road",
-      "country",
-      "nostalgia",
-      "outdoor",
-      "family"
+      "Country",
+      "Nostalgia",
+      "Simple Life",
+      "Rural",
+      "Americana",
+      "Road",
+      "Country",
+      "Nostalgia",
+      "Outdoor",
+      "Family"
     ]
   },
   "Lost in the Pine": {
@@ -608,16 +608,16 @@
     "album cover": "lib/assets/covers/Lost_in_the_Pine.png",
     "public_time": "2024-04-30",
     "keyword": [
-      "country",
-      "nature",
-      "solitude",
-      "reflective",
-      "calm",
-      "nature",
-      "reflective",
-      "relaxation",
-      "outdoor",
-      "calm"
+      "Country",
+      "Nature",
+      "Solitude",
+      "Reflective",
+      "Calm",
+      "Nature",
+      "Reflective",
+      "Relaxation",
+      "Outdoor",
+      "Calm"
     ]
   },
   "Electric Dreams": {
@@ -631,16 +631,16 @@
     "album cover": "lib/assets/covers/Electric_Dreams.png",
     "public_time": "2024-05-10",
     "keyword": [
-      "electronic",
-      "dreamy",
-      "futuristic",
-      "energetic",
-      "modern",
-      "party",
-      "night",
-      "dancing",
-      "club",
-      "futuristic"
+      "Electronic",
+      "Dreamy",
+      "Futuristic",
+      "Energetic",
+      "Modern",
+      "Party",
+      "Night",
+      "Dancing",
+      "Club",
+      "Futuristic"
     ]
   },
   "Flashing Lights": {
@@ -654,16 +654,16 @@
     "album cover": "lib/assets/covers/Flashing_Lights.png",
     "public_time": "2024-06-07",
     "keyword": [
-      "electronic",
-      "vibrant",
-      "bright",
-      "energetic",
-      "nightlife",
-      "nightlife",
-      "party",
-      "dancing",
-      "urban",
-      "energetic"
+      "Electronic",
+      "Vibrant",
+      "Bright",
+      "Energetic",
+      "Nightlife",
+      "Nightlife",
+      "Party",
+      "Dancing",
+      "Urban",
+      "Energetic"
     ]
   },
   "Night Sky Dreams": {
@@ -677,16 +677,16 @@
     "album cover": "lib/assets/covers/Night_Sky_Dreams.png",
     "public_time": "2024-05-15",
     "keyword": [
-      "electronic",
-      "dreamy",
-      "calm",
-      "night",
-      "relaxing",
-      "stargazing",
-      "night",
-      "daydreaming",
-      "sleep",
-      "meditation"
+      "Electronic",
+      "Dreamy",
+      "Calm",
+      "Night",
+      "Relaxing",
+      "Stargazing",
+      "Night",
+      "Daydreaming",
+      "Sleep",
+      "Meditation"
     ]
   },
   "Digital Dreams": {
@@ -700,16 +700,16 @@
     "album cover": "lib/assets/covers/Digital_Dreams.png",
     "public_time": "2024-05-25",
     "keyword": [
-      "electronic",
-      "digital",
-      "futuristic",
-      "modern",
-      "energetic",
-      "gaming",
-      "futuristic",
-      "party",
-      "creative",
-      "tech"
+      "Electronic",
+      "Digital",
+      "Futuristic",
+      "Modern",
+      "Energetic",
+      "Gaming",
+      "Futuristic",
+      "Party",
+      "Creative",
+      "Tech"
     ]
   },
   "Island Sun": {
@@ -723,16 +723,16 @@
     "album cover": "lib/assets/covers/Island_Sun.png",
     "public_time": "2024-04-20",
     "keyword": [
-      "reggae",
-      "island",
-      "sunshine",
-      "relaxing",
-      "tropical",
-      "beach",
-      "vacation",
-      "relaxation",
-      "tropical",
-      "sunny"
+      "Reggae",
+      "Island",
+      "Sunshine",
+      "Relaxing",
+      "Tropical",
+      "Beach",
+      "Vacation",
+      "Relaxation",
+      "Tropical",
+      "Sunny"
     ]
   },
   "Sunshine Vibes": {
@@ -746,16 +746,16 @@
     "album cover": "lib/assets/covers/Sunshine_Vibes.png",
     "public_time": "2024-06-10",
     "keyword": [
-      "reggae",
-      "sunshine",
-      "positive",
-      "vibes",
-      "uplifting",
-      "summer",
-      "beach",
-      "vacation",
-      "outdoor",
-      "relaxation"
+      "Reggae",
+      "Sunshine",
+      "Positive",
+      "Vibes",
+      "Uplifting",
+      "Summer",
+      "Beach",
+      "Vacation",
+      "Outdoor",
+      "Relaxation"
     ]
   },
   "Dancing Waves": {
@@ -769,16 +769,16 @@
     "album cover": "lib/assets/covers/Dancing_Waves.png",
     "public_time": "2024-05-28",
     "keyword": [
-      "reggae",
-      "beach",
-      "waves",
-      "relaxing",
-      "tropical",
-      "beach",
-      "surfing",
-      "vacation",
-      "tropical",
-      "relaxation"
+      "Reggae",
+      "Beach",
+      "Waves",
+      "Relaxing",
+      "Tropical",
+      "Beach",
+      "Surfing",
+      "Vacation",
+      "Tropical",
+      "Relaxation"
     ]
   }
 }

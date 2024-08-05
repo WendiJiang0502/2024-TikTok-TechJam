@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 import json
 from recommender import recommend_songs
 import os
-from bgm_recommender import extract_keywords
+from bgm_recommender import extract_keywords, bgm_recommendation
 
 app = Flask(__name__)
 
@@ -32,7 +32,9 @@ def get_recommendations():
 def bgm_recommendations():
     video_path = request.args.get('video_path')
     keywords = extract_keywords(video_path)
-    return jsonify(keywords)
+    recommendations = bgm_recommendation(keywords)
+    recommendation_titles = [song['Title'] for song in recommendations]
+    return jsonify(recommendation_titles)
 
 
 if __name__ == "__main__":
