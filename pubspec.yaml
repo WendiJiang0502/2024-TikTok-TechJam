@@ -46,7 +46,7 @@ dependencies:
   cupertino_icons: ^1.0.6
   get: ^4.6.6
 
-  flutter_ffmpeg: ^0.4.2
+#  flutter_ffmpeg: ^0.4.2
   http: any
 
 dev_dependencies:
@@ -73,6 +73,8 @@ flutter:
     - lib/me.json
     - lib/assets/short_videos.json
     - lib/assets/bgm.json
+    - lib/assets/songs/Dancing_in_the_Moonlight.mp3
+    - lib/assets/1min_edition.mp4
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.

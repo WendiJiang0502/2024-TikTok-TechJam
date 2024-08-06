@@ -3,9 +3,10 @@ import json
 from recommender import recommend_songs
 import os
 from bgm_recommender import extract_keywords, bgm_recommendation
+from flask_cors import CORS
 
 app = Flask(__name__)
-
+CORS(app)
 
 def pull_file_from_device(device_path, local_path):
     os.system(f'adb pull {device_path} {local_path}')
@@ -39,4 +40,5 @@ def bgm_recommendations():
 
 if __name__ == "__main__":
     app.run(debug=True, host="127.0.0.1", port=5000)
+    # app.run(debug=True, host="192.168.0.19", port=5000)
 

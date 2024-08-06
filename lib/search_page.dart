@@ -97,7 +97,7 @@ class _SearchPageState extends State<SearchPage> {
 
     final response = await http.get(
         Uri.parse('http://127.0.0.1:5000/recommendations')
-        // Uri.parse('http://10.0.2.2:5000/recommendations')
+        // Uri.parse('http://192.168.0.19:5000/recommendations')
         // Uri.parse('http://192.168.1.111:5000/recommendations')
         );
 
