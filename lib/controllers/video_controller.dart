@@ -90,14 +90,14 @@ class VideoController extends GetxController {
         // keyword is not directly used in Video model, adjust if necessary
       ));
     });
-    _bgmList.value = bgmList;  // Assuming recommendationList is used for BGM
+    _bgmList.value = bgmList;
   }
 
   void addVideoToForYou(Video video) {
     var currentList = _shortVideoList.value;
-    currentList.insert(0, video); // Adds new video at the start of the list
+    currentList.insert(0, video);  // Adds new video at the start of the list
     _shortVideoList.value = currentList;
-    update(); // Notify listeners if using GetX
+    update();  // Notify listeners if using GetX
   }
 
 
