@@ -280,6 +280,7 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   VideoDisplay(
                     video_path: song.song_path,
+                    bgmPath: song.bgm_path,
                   ),
                    if (_selectedTab == 'Music') CircleAnimation(
                     child: buildMusicAlbum(song.cover_path),
