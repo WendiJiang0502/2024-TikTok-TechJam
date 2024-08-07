@@ -16,6 +16,7 @@ class MusicSelectionScreen extends StatefulWidget {
 class _MusicSelectionScreenState extends State<MusicSelectionScreen> {
   final VideoController _videoController = Get.find<VideoController>();
   AudioPlayer audioPlayer = AudioPlayer();
+  late AudioCache audioCache = AudioCache(prefix: "");
   int? selectedMusicIndex;
 
   @override
@@ -24,8 +25,10 @@ class _MusicSelectionScreenState extends State<MusicSelectionScreen> {
     super.dispose();
   }
 
-  void playMusic(String filePath) async {
-    await audioPlayer.play(UrlSource(filePath));
+  void playMusic(String bgmPath) async {
+    final filePath = await audioCache.load(bgmPath);
+    // await _audioPlayer!.play(AssetSource(filePath), volume: 1);
+    await audioPlayer!.play(UrlSource(filePath.path), volume: 1);
   }
 
   void uploadVideoWithMusic() {
