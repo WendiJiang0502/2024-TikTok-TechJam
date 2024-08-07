@@ -34,7 +34,7 @@ dependencies:
   video_player: ^2.2.11
   path_provider: ^2.1.3
   collection: ^1.18.0
-  image_picker: ^0.8.5+3
+  image_picker: ^1.1.2
   audioplayers: ^6.0.0
   ns_danmaku: 
     git: 
@@ -73,8 +73,6 @@ flutter:
     - lib/me.json
     - lib/assets/short_videos.json
     - lib/assets/bgm.json
-    - lib/assets/songs/Dancing_in_the_Moonlight.mp3
-    - lib/assets/1min_edition.mp4
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.

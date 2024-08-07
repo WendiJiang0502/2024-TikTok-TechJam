@@ -5,11 +5,11 @@ import 'package:audioplayers/audioplayers.dart';
 class VideoDisplay extends StatefulWidget {
   // final String video_path = "assets/songs/Broken_Mirrors.mp3";
   final String video_path;
-  final String? bgmPath;
+  // final String? bgmPath;
   const VideoDisplay({
     Key? key,
     required this.video_path,
-    this.bgmPath,
+    // this.bgmPath,
   }) : super(key: key);
 
   // const VideoDisplay({super.key});
@@ -25,7 +25,7 @@ class _VideoDisplayState extends State<VideoDisplay> {
   @override
   void initState() {
     super.initState();
-    initializeVideo();
+    // initializeVideo();
     // videoPlayerController = VideoPlayerController.asset("lib/assets/songs/Broken_Mirrors.mp3")
     videoPlayerController = VideoPlayerController.asset(widget.video_path)
       // ..addListener(() => setState(() {}))
@@ -37,23 +37,23 @@ class _VideoDisplayState extends State<VideoDisplay> {
       });
   }
 
-  void initializeVideo() {
-    videoPlayerController = VideoPlayerController.asset(widget.video_path)
-      ..initialize().then((_) {
-        setState(() {
-          videoPlayerController.play();
-          if (widget.bgmPath != null) {
-            // Mute the video's original audio if BGM is provided
-            videoPlayerController.setVolume(0);
-            _audioPlayer = AudioPlayer();
-            playBackgroundMusic(widget.bgmPath!);
-          } else {
-            // Play video with its original sound
-            videoPlayerController.setVolume(1);
-          }
-        });
-      });
-  }
+  // void initializeVideo() {
+  //   videoPlayerController = VideoPlayerController.asset(widget.video_path)
+  //     ..initialize().then((_) {
+  //       setState(() {
+  //         videoPlayerController.play();
+  //         // if (widget.bgmPath != null) {
+  //         //   // Mute the video's original audio if BGM is provided
+  //         //   videoPlayerController.setVolume(0);
+  //         //   _audioPlayer = AudioPlayer();
+  //         //   playBackgroundMusic(widget.bgmPath!);
+  //         // } else {
+  //         //   // Play video with its original sound
+  //         //   videoPlayerController.setVolume(1);
+  //         // }
+  //       });
+  //     });
+  // }
 
   void playBackgroundMusic(String bgmPath) async {
     await _audioPlayer!.play(UrlSource(bgmPath), volume: 1.0); // Ensure the volume is set to audible level

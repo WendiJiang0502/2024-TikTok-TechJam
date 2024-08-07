@@ -24,7 +24,7 @@ class Video{
     required this.song_path,
     required this.cover_path,
     required this.public_time,
-    this.bgm_path = '',
+    this.bgm_path = "",
   });
 
   Map<String, dynamic> toJson() => {

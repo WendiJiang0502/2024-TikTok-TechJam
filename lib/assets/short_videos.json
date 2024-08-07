@@ -7,6 +7,7 @@
     "Likes": 300,
     "Comments": 150,
     "path": "lib/assets/1min_edition.mp4",
+    "bgm_path": "lib/assets/songs/Forever_in_Time.mp3",
     "album cover": "lib/assets/profile_pic.jpg",
     "public_time": "2024-07-01"
   }

@@ -8,6 +8,7 @@ import 'package:temp_flutter/objects/video.dart';
 import 'package:temp_flutter/widgets/circle_animation.dart';
 import 'package:video_player/video_player.dart';
 import 'package:temp_flutter/widgets/video_display.dart';
+import 'package:temp_flutter/widgets/short_video_display.dart';
 import 'package:temp_flutter/controllers/video_controller.dart';
 import 'package:get/get.dart';
 import 'package:temp_flutter/widgets/danmaku_icon.dart';
@@ -278,9 +279,12 @@ class _HomePageState extends State<HomePage> {
               return Stack(
                 alignment: Alignment.center,
                 children: [
-                  VideoDisplay(
+                  _selectedTab == 'For you'?
+                  ShortVideoDisplay(
                     video_path: song.song_path,
                     bgmPath: song.bgm_path,
+                  ):VideoDisplay(
+                    video_path: song.song_path,
                   ),
                    if (_selectedTab == 'Music') CircleAnimation(
                     child: buildMusicAlbum(song.cover_path),
@@ -453,7 +457,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ],
                   ),
-                  DanmakuView(
+                  _selectedTab == 'Music'? DanmakuView(
                     key: GlobalKey(),
                     createdController: (DanmakuController e) {
                       _controller = e;
@@ -470,7 +474,7 @@ class _HomePageState extends State<HomePage> {
                         _running = e;
                       });
                     },
-                  ),
+                  ): Container(),
                 ],
               );
             }
