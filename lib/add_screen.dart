@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:temp_flutter/constants.dart';
 import 'package:temp_flutter/music_select_page.dart';
-
+import 'package:path/path.dart' as path;
 
 class AddVideo extends StatelessWidget {
   final ImagePicker _picker = ImagePicker();
@@ -83,7 +83,7 @@ class AddVideo extends StatelessWidget {
   void showAssetOptions(BuildContext context) {
     final List<String> assetVideos = [
       'lib/assets/Magical_Night_Street.mp4',
-      'lib/assets/1つのシーンで作る日本食ビデオ！.mp4',
+      'lib/assets/food.mp4',
       'lib/assets/travel_video.mp4',
     ];
 
@@ -100,7 +100,7 @@ class AddVideo extends StatelessWidget {
             items: assetVideos.map((String value) {
               return DropdownMenuItem<String>(
                 value: value,
-                child: Text(value),
+                child: Text(path.basename(value)),
               );
             }).toList(),
             onChanged: (value) {

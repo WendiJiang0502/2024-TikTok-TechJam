@@ -42,6 +42,7 @@ class _ShortVideoDisplayState extends State<ShortVideoDisplay> {
     videoPlayerController = VideoPlayerController.asset(widget.video_path, videoPlayerOptions: VideoPlayerOptions(
             mixWithOthers: true,
           ),)
+      ..setLooping(true)
       ..initialize().then((_) {
         setState(() {
           videoPlayerController.play();

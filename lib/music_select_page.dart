@@ -19,6 +19,14 @@ class _MusicSelectionScreenState extends State<MusicSelectionScreen> {
   late AudioCache audioCache = AudioCache(prefix: "");
   int? selectedMusicIndex;
 
+  final List<String> keywords = [
+    "Keyword1",
+    "Keyword2",
+    "Keyword3",
+    "Keyword4",
+    "Keyword5",
+  ];
+
   @override
   void dispose() {
     audioPlayer.dispose();
@@ -74,24 +82,38 @@ class _MusicSelectionScreenState extends State<MusicSelectionScreen> {
       appBar: AppBar(
         title: Text('Select Background Music'),
       ),
-      body: ListView.builder(
-        itemCount: _videoController.bgmList.length,
-        itemBuilder: (context, index) {
-          final bgm = _videoController.bgmList[index];
-          return ListTile(
-            leading: Icon(selectedMusicIndex == index ? Icons.music_note : Icons.music_video),
-            title: Text(bgm.name),
-            subtitle: Text(bgm.creator),
-            onTap: () {
-              setState(() {
-                selectedMusicIndex = index;
-                playMusic(bgm.song_path);
-              });
-            },
-            selected: index == selectedMusicIndex,
-            selectedTileColor: Colors.grey[200],
-          );
-        },
+      body: Column(
+        children: [
+          Container(
+            padding: EdgeInsets.all(10.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: keywords.map((keyword) => Text(keyword)).toList(),
+            ),
+          ),
+          Expanded(
+            child: ListView.builder(
+              itemCount: _videoController.bgmList.length,
+              itemBuilder: (context, index) {
+                final bgm = _videoController.bgmList[index];
+                return ListTile(
+                  leading: Icon(
+                      selectedMusicIndex == index ? Icons.music_note : Icons.music_video),
+                  title: Text(bgm.name),
+                  subtitle: Text(bgm.creator),
+                  onTap: () {
+                    setState(() {
+                      selectedMusicIndex = index;
+                      playMusic(bgm.song_path);
+                    });
+                  },
+                  selected: index == selectedMusicIndex,
+                  selectedTileColor: Colors.grey[200],
+                );
+              },
+            ),
+          ),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: uploadVideoWithMusic,
