@@ -59,7 +59,7 @@
       "Pop",
       "Love",
       "Romantic",
-      "Uplifting",
+      "Amusement",
       "Joyful",
       "Road",
       "Happy",
@@ -80,14 +80,14 @@
     "public_time": "2024-06-05",
     "keyword": [
       "Pop",
-      "Dance",
+      "Amusement",
       "Night",
       "Happy",
       "Energetic",
       "Party",
       "Dancing",
       "Celebration",
-      "Night",
+      "Crowd",
       "Energetic"
     ]
   },
@@ -152,8 +152,8 @@
       "Urban",
       "Nighttime",
       "Rhythmic",
-      "Street",
       "Urban",
+      "Cityscape",
       "Night",
       "Driving",
       "Party",
@@ -179,7 +179,7 @@
       "Walking",
       "Reflective",
       "Driving",
-      "Urban",
+      "Cityscape",
       "Chill"
     ]
   },
@@ -196,7 +196,7 @@
     "keyword": [
       "Classical",
       "Timeless",
-      "Beautiful",
+      "Cooking",
       "Orchestral",
       "Epic",
       "Study",
@@ -218,10 +218,10 @@
     "public_time": "2024-06-14",
     "keyword": [
       "Classical",
-      "Calm",
+      "Lights",
       "Relaxing",
-      "Journey",
-      "Soothing",
+      "Preparation",
+      "Sushi",
       "Meditation",
       "Relaxation",
       "Study",
@@ -248,8 +248,8 @@
       "Study",
       "Reflection",
       "Relaxation",
-      "Artistic",
-      "Background"
+      "Preparation",
+      "Lights"
     ]
   },
   "Dreamscape": {
@@ -266,7 +266,7 @@
       "Classical",
       "Dreamy",
       "Ethereal",
-      "Calm",
+      "Lights",
       "Relaxing",
       "Meditation",
       "Sleep",
@@ -287,11 +287,11 @@
     "public_time": "2024-06-11",
     "keyword": [
       "Country",
-      "Grit",
+      "Sea",
       "Strength",
       "Graceful",
       "Inspirational",
-      "Road",
+      "Off-road",
       "Working",
       "Country",
       "Adventure",
@@ -311,12 +311,12 @@
     "keyword": [
       "Country",
       "Nature",
-      "Nostalgia",
+      "Sushi",
       "Calm",
       "Roots",
       "Picnics",
       "Relaxation",
-      "Nostalgia",
+      "Preparation",
       "Nature",
       "Family"
     ]
@@ -340,7 +340,7 @@
       "Party",
       "Night",
       "Dancing",
-      "Club",
+      "Off-road",
       "Energetic"
     ]
   },
@@ -358,9 +358,9 @@
       "Electronic",
       "Bright",
       "Vibrant",
-      "Nightlife",
-      "Futuristic",
-      "Nightlife",
+      "Nights",
+      "Off-road",
+      "Nighttime",
       "Party",
       "Dancing",
       "Urban",
@@ -402,7 +402,7 @@
     "public_time": "2024-06-24",
     "keyword": [
       "Relaxing",
-      "Lullaby",
+      "Preparation",
       "Dreamy",
       "Calm",
       "Soothing",
@@ -452,7 +452,7 @@
       "Night",
       "Smooth",
       "Serenade",
-      "Romantic",
+      "Sushi",
       "Late-night",
       "Relaxation",
       "Intimate",
@@ -475,7 +475,7 @@
       "Intense",
       "Energetic",
       "Love",
-      "Workout",
+      "Bridge",
       "Party",
       "Celebration",
       "Energetic",
@@ -496,7 +496,7 @@
       "Pop",
       "Bright",
       "Inspirational",
-      "Uplifting",
+      "Adventure",
       "Joyful",
       "Celebration",
       "Happy",
@@ -517,14 +517,14 @@
     "public_time": "2024-07-03",
     "keyword": [
       "Rock",
-      "Intense",
+      "Crowd",
       "Resilience",
       "Strong",
-      "Powerful",
+      "Ocean",
       "Intense",
       "Motivation",
-      "Driving",
       "Adventure",
+      "Park",
       "Powerful"
     ]
   },
@@ -587,9 +587,9 @@
     "keyword": [
       "Country",
       "Nostalgia",
-      "Simple Life",
+      "Sushi",
       "Rural",
-      "Americana",
+      "Preparation",
       "Road",
       "Country",
       "Nostalgia",
@@ -609,14 +609,14 @@
     "public_time": "2024-04-30",
     "keyword": [
       "Country",
-      "Nature",
+      "Adventure",
       "Solitude",
       "Reflective",
       "Calm",
       "Nature",
-      "Reflective",
+      "Ocean",
       "Relaxation",
-      "Outdoor",
+      "Sea",
       "Calm"
     ]
   },
@@ -640,7 +640,7 @@
       "Night",
       "Dancing",
       "Club",
-      "Futuristic"
+      "People"
     ]
   },
   "Flashing Lights": {
@@ -654,12 +654,12 @@
     "album cover": "lib/assets/covers/Flashing_Lights.png",
     "public_time": "2024-06-07",
     "keyword": [
-      "Electronic",
+      "Fun",
       "Vibrant",
       "Bright",
       "Energetic",
       "Nightlife",
-      "Nightlife",
+      "Outdoors",
       "Party",
       "Dancing",
       "Urban",
@@ -678,14 +678,14 @@
     "public_time": "2024-05-15",
     "keyword": [
       "Electronic",
-      "Dreamy",
+      "Sea",
       "Calm",
       "Night",
       "Relaxing",
       "Stargazing",
       "Night",
       "Daydreaming",
-      "Sleep",
+      "Ocean",
       "Meditation"
     ]
   },
@@ -702,7 +702,7 @@
     "keyword": [
       "Electronic",
       "Digital",
-      "Futuristic",
+      "Peoplw",
       "Modern",
       "Energetic",
       "Gaming",
@@ -724,14 +724,14 @@
     "public_time": "2024-04-20",
     "keyword": [
       "Reggae",
-      "Island",
-      "Sunshine",
+      "Ocean",
+      "Colorful",
       "Relaxing",
       "Tropical",
-      "Beach",
+      "Sea",
       "Vacation",
       "Relaxation",
-      "Tropical",
+      "Adventure",
       "Sunny"
     ]
   },
@@ -748,14 +748,14 @@
     "keyword": [
       "Reggae",
       "Sunshine",
-      "Positive",
+      "Adventure",
       "Vibes",
       "Uplifting",
       "Summer",
       "Beach",
       "Vacation",
-      "Outdoor",
-      "Relaxation"
+      "Themepark",
+      "Ocean"
     ]
   },
   "Dancing Waves": {
@@ -769,12 +769,12 @@
     "album cover": "lib/assets/covers/Dancing_Waves.png",
     "public_time": "2024-05-28",
     "keyword": [
-      "Reggae",
+      "Theme",
       "Beach",
-      "Waves",
+      "Ocean",
       "Relaxing",
       "Tropical",
-      "Beach",
+      "Adventure",
       "Surfing",
       "Vacation",
       "Tropical",

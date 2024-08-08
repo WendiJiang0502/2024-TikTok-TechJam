@@ -9,7 +9,8 @@ class VideoController extends GetxController {
   final Rx<List<Video>> _recommendationList = Rx<List<Video>>([]);
   final Rx<List<Video>> _shortVideoList = Rx<List<Video>>([]);
   final Rx<List<Video>> _bgmList = Rx<List<Video>>([]);
-
+  final Rx<List<Video>> _recommendBgmList = Rx<List<Video>>([]);
+  
 
   List<Video> get shortVideoList => _shortVideoList.value;
 
@@ -17,7 +18,7 @@ class VideoController extends GetxController {
   List<Video> get videoList => _videoList.value;
   List<Video> get bgmList => _bgmList.value;
 
-
+  List<Video> get recommendBgmList => _recommendBgmList.value;
   List<Video> get recommendationList => _recommendationList.value;
 
   @override
@@ -73,6 +74,7 @@ class VideoController extends GetxController {
   }
 
   void loadBackgroundMusic() async {
+
     final String jsonString = await rootBundle.loadString('lib/assets/bgm.json');
     final Map<String, dynamic> jsonMap = json.decode(jsonString);
     List<Video> bgmList = [];

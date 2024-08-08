@@ -29,6 +29,12 @@ def get_recommendations():
     recommendation_titles = [song['Title'] for song in recommendations]
     return jsonify(recommendation_titles)
 
+@app.route('/extract_keywords', methods=['GET'])
+def keywords():
+    video_path = request.args.get('video_path')
+    keywords = extract_keywords(video_path)
+    return jsonify(keywords)
+
 @app.route('/bgm_recommendations', methods=['GET'])
 def bgm_recommendations():
     video_path = request.args.get('video_path')

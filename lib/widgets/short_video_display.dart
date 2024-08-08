@@ -48,7 +48,7 @@ class _ShortVideoDisplayState extends State<ShortVideoDisplay> {
           videoPlayerController.play();
           if (widget.bgmPath != null) {
             // Mute the video's original audio if BGM is provided
-            videoPlayerController.setVolume(0);
+            videoPlayerController.setVolume(0.25);
             _audioPlayer = AudioPlayer();
             _audioCache = AudioCache(prefix: "");
             playBackgroundMusic(widget.bgmPath!);

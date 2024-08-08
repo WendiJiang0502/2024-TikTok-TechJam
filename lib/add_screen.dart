@@ -84,7 +84,7 @@ class AddVideo extends StatelessWidget {
     final List<String> assetVideos = [
       'lib/assets/Magical_Night_Street.mp4',
       'lib/assets/food.mp4',
-      'lib/assets/travel_video.mp4',
+      'lib/assets/travel.mp4',
     ];
 
     showDialog(

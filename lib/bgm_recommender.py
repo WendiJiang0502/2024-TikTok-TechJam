@@ -17,7 +17,7 @@ def extract_keywords(path):
         success, frame = video.read()
         if not success:
             break
-        if frame_count % 10 == 0:
+        if frame_count % 20 == 0:
             _, buffer = cv2.imencode(".jpg", frame)
             base64Frames.append(base64.b64encode(buffer).decode("utf-8"))
         frame_count += 1
@@ -30,7 +30,7 @@ def extract_keywords(path):
         {
             "role": "user",
             "content": [
-                "These are frames from a video that I want to upload. Give me 5 keywords to describe the content of the video.",
+                "These are frames from a video that I want to upload. Give me 10 keywords (10 single words) to describe the content of the video.",
                 *map(lambda x: {"image": x, "resize": 768}, base64Frames[0::50]),
             ],
         },
@@ -45,7 +45,7 @@ def extract_keywords(path):
     # return result.choices[0].message.content.split()
     keywords_with_numbers = result.choices[0].message.content.split()
     keywords = [keywords_with_numbers[i] for i in range(len(keywords_with_numbers)) if i % 2 != 0]
-    return keywords
+    return keywords[:6]
 
 with open('assets/bgm.json', 'r') as f:
     songs_data = json.load(f)
